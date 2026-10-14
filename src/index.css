@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white font-body text-slate-800 antialiased;
+  }
+  ::selection {
+    background: #f2b705;
+    color: #0b1226;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2 disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-brand-navy text-white hover:bg-brand-navyLight hover:shadow-cardHover;
+  }
+  .btn-gold {
+    @apply btn bg-brand-gold text-brand-navy hover:bg-brand-goldDark hover:text-white;
+  }
+  .btn-outline {
+    @apply btn border border-slate-300 bg-white text-slate-700 hover:border-brand-navy hover:text-brand-navy;
+  }
+  .btn-ghost {
+    @apply btn text-slate-600 hover:bg-slate-100 hover:text-brand-navy;
+  }
+
+  /* Inputs */
+  .input {
+    @apply w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:border-brand-navy focus:outline-none focus:ring-2 focus:ring-brand-navy/15;
+  }
+  .select {
+    @apply input appearance-none pr-9;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-slate-700;
+  }
+
+  /* Cards */
+  .card {
+    @apply rounded-2xl border border-slate-200 bg-white shadow-card;
+  }
+  .card-hover {
+    @apply transition-all duration-200 hover:-translate-y-0.5 hover:shadow-cardHover;
+  }
+
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold;
+  }
+  .badge-gold {
+    @apply badge bg-brand-gold/15 text-brand-goldDark;
+  }
+  .badge-navy {
+    @apply badge bg-brand-navy/5 text-brand-navy;
+  }
+  .badge-green {
+    @apply badge bg-emerald-50 text-emerald-700;
+  }
+  .badge-red {
+    @apply badge bg-red-50 text-red-600;
+  }
+  .badge-slate {
+    @apply badge bg-slate-100 text-slate-600;
+  }
+
+  /* Section heading */
+  .section-kicker {
+    @apply text-xs font-bold uppercase tracking-[0.18em] text-brand-goldDark;
+  }
+  .section-title {
+    @apply font-display text-2xl font-bold text-brand-navy sm:text-3xl;
+  }
+
+  /* Skeleton */
+  .skeleton {
+    @apply animate-pulse rounded-xl bg-slate-200;
+  }
+
+  /* Scroll reveal — elements fade + rise into view as they enter the viewport */
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Hero entrance */
+  .hero-enter {
+    animation: hero-enter 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .hero-enter-1 {
+    animation-delay: 0.05s;
+  }
+  .hero-enter-2 {
+    animation-delay: 0.18s;
+  }
+  .hero-enter-3 {
+    animation-delay: 0.32s;
+  }
+
+  /* Gentle float for hero accents */
+  .float-slow {
+    animation: float-slow 6s ease-in-out infinite;
+  }
+
+  /* Card hover lift (applies on top of .card) */
+  .lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-cardHover;
+  }
+}
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero-enter,
+  .float-slow {
+    animation: none;
+  }
+}

@@ -8,6 +8,7 @@
 --   2. v1 base schema (schema.sql: all core tables, RLS, triggers)
 --   3. v1 incremental migrations (certificates, volunteers, etc.)
 --   4. v2 migrations (saved_items, channel_posts, donations, services)
+-- Secrets refreshed 2026-10-15; deploy re-triggered.
 -- Excluded on purpose:
 --   - 20260705004 / 20260705006 stat defaults (old site's claimed numbers;
 --     a fresh site starts at honest zeros)

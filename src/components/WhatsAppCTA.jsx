@@ -16,9 +16,11 @@ export const WHATSAPP_CHANNELS = {
 
 export const WEBSITE_URL = 'https://www.career-radar.space/'
 
-// Shared call to action: follow the right WhatsApp channel + visit the website.
+// Shared call to action: follow the right WhatsApp channel (+ website link unless hidden).
 // Place at the end of every guide, video page, and post detail page.
-export default function WhatsAppCTA({ channel = 'main', title = 'Never miss a post' }) {
+// Video pages pass showWebsiteLink={false}: the guide there links the video's own
+// official website instead of the Career Radar site.
+export default function WhatsAppCTA({ channel = 'main', title = 'Never miss a post', showWebsiteLink = true }) {
   const ch = WHATSAPP_CHANNELS[channel] || WHATSAPP_CHANNELS.main
   return (
     <Reveal className="mt-10 rounded-2xl bg-brand-navy p-6 text-white sm:p-7">
@@ -39,14 +41,16 @@ export default function WhatsAppCTA({ channel = 'main', title = 'Never miss a po
           <a href={ch.link} target="_blank" rel="noreferrer" className="btn-gold">
             <MessageCircle size={17} /> Follow on WhatsApp
           </a>
-          <a
-            href={WEBSITE_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="text-sm font-semibold text-brand-gold hover:underline"
-          >
-            Visit our website: {WEBSITE_URL}
-          </a>
+          {showWebsiteLink && (
+            <a
+              href={WEBSITE_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="text-sm font-semibold text-brand-gold hover:underline"
+            >
+              Visit our website: {WEBSITE_URL}
+            </a>
+          )}
         </div>
       </div>
     </Reveal>

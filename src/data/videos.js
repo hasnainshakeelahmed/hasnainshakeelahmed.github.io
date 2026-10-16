@@ -72,6 +72,8 @@ export const VIDEOS = [
   },
   {
     slug: 'gates-cambridge-2027',
+    officialLink: { label: 'Gates Cambridge Scholarship', url: 'https://www.gatescambridge.org' },
+
     videoId: 'L5B2p8ZtOUI',
     title: 'Gates Cambridge Scholarship 2027: How to Win a Fully Funded Seat at Cambridge',
     type: 'long',
@@ -192,6 +194,8 @@ export const VIDEOS = [
   },
   {
     slug: 'what-is-uopeople',
+    officialLink: { label: 'University of the People', url: 'https://www.uopeople.edu' },
+
     videoId: 'Bju5qNsPbHo',
     title: 'What Is University of the People? The Tuition-Free University Explained',
     type: 'long',
@@ -310,6 +314,8 @@ export const VIDEOS = [
   },
   {
     slug: 'is-uopeople-accredited',
+    officialLink: { label: 'University of the People', url: 'https://www.uopeople.edu' },
+
     videoId: 'Ih854Yc8L_k',
     title: 'Is University of the People Accredited? The Truth About Its Accreditation',
     type: 'long',
@@ -368,6 +374,8 @@ export const VIDEOS = [
   },
   {
     slug: 'uopeople-degree-valid-pakistan',
+    officialLink: { label: 'Higher Education Commission (HEC) Pakistan', url: 'https://www.hec.gov.pk' },
+
     videoId: 'ihv_1FdT3FM',
     title: 'Is a UoPeople Degree Valid in Pakistan? HEC Equivalence Explained',
     type: 'long',
@@ -426,6 +434,8 @@ export const VIDEOS = [
   },
   {
     slug: 'commonwealth-masters-2027',
+    officialLink: { label: 'Commonwealth Scholarship Commission', url: 'https://cscuk.fcdo.gov.uk' },
+
     videoId: 'aYXv99qvISo',
     title: "Commonwealth Master's Scholarships 2027/28: Fully Funded UK Study (Deadline 20 October)",
     type: 'long',
@@ -486,6 +496,8 @@ export const VIDEOS = [
   },
   {
     slug: 'how-to-apply-uopeople',
+    officialLink: { label: 'University of the People', url: 'https://www.uopeople.edu' },
+
     videoId: '6iP3KlhAqOM',
     title: 'How to Apply to University of the People: Requirements & Step-by-Step (2026)',
     type: 'long',
@@ -544,6 +556,8 @@ export const VIDEOS = [
   },
   {
     slug: 'real-cost-uopeople',
+    officialLink: { label: 'University of the People', url: 'https://www.uopeople.edu' },
+
     videoId: 'V42e9DENc9E',
     title: "The Real Cost of University of the People: What 'Tuition-Free' Really Means",
     type: 'long',
@@ -602,6 +616,8 @@ export const VIDEOS = [
   },
   {
     slug: 'uopeople-scholarships',
+    officialLink: { label: 'University of the People', url: 'https://www.uopeople.edu' },
+
     videoId: 'lfwQn9at3t4',
     title: 'UoPeople Scholarships: How to Study for Free (2026)',
     type: 'long',
@@ -664,6 +680,8 @@ export const VIDEOS = [
   },
   {
     slug: 'yenching-academy-2027',
+    officialLink: { label: 'Yenching Academy, Peking University', url: 'https://yenchingacademy.org' },
+
     videoId: 'QbsWsyNAzfk',
     title: "Yenching Academy 2027: Fully Funded Master's at Peking University — How to Win It",
     type: 'long',
@@ -724,6 +742,8 @@ export const VIDEOS = [
   },
   {
     slug: 'uopeople-vs-traditional',
+    officialLink: { label: 'University of the People', url: 'https://www.uopeople.edu' },
+
     videoId: 'EYMnmAmyK8A',
     title: 'UoPeople vs Traditional University: Honest Pros and Cons — Who Should Actually Enroll',
     type: 'long',
@@ -1191,6 +1211,8 @@ export const VIDEOS = [
   },
   {
     slug: 'harvard-cs-course-free',
+    officialLink: { label: 'CS50x — Harvard University', url: 'https://cs50.harvard.edu/x/' },
+
     videoId: 'ishHdc7Cc_U',
     title: "Harvard's Famous CS Course Is Completely Free #Shorts",
     type: 'short',

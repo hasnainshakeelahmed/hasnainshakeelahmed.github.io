@@ -126,7 +126,20 @@ export default function VideoBlog() {
                 </div>
               </div>
             )}
-            <WhatsAppCTA channel="main" />
+            {video.officialLink && (
+              <p className="mt-8 text-sm leading-relaxed text-slate-700">
+                Official website:{' '}
+                <a
+                  href={video.officialLink.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-semibold text-brand-navy underline decoration-brand-gold decoration-2 underline-offset-2 hover:text-brand-goldDark"
+                >
+                  {video.officialLink.label} <ExternalLink size={13} className="inline" />
+                </a>
+              </p>
+            )}
+            <WhatsAppCTA channel="main" showWebsiteLink={false} />
           </div>
         )}
 

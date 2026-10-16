@@ -78,7 +78,8 @@ export default function VideoBlog() {
           ))}
         </div>
 
-        {/* Key takeaways */}
+        {/* Key takeaways — hidden when the video has none (auto-synced) */}
+        {video.takeaways && video.takeaways.length > 0 && (
         <Reveal className="mt-8 rounded-2xl bg-brand-navy p-6 text-white sm:p-7">
           <h2 className="font-display text-lg font-bold">
             Key takeaways <span className="text-brand-gold">—</span>
@@ -91,6 +92,7 @@ export default function VideoBlog() {
             ))}
           </ul>
         </Reveal>
+        )}
 
         {/* Detailed guide */}
         {video.guide && (

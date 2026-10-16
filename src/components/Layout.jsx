@@ -28,7 +28,7 @@ function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-brand-goldDark/50 bg-brand-gold shadow-sm">
       <div className="container-x flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center" aria-label="CareerRadar home">
           <SiteLogo variant="light" className="h-10 w-10" />
@@ -41,7 +41,7 @@ function Navbar() {
               to={item.to}
               className={({ isActive }) =>
                 `rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
-                  isActive ? 'bg-brand-navySoft text-brand-navy' : 'text-slate-600 hover:text-brand-navy'
+                  isActive ? 'bg-brand-navy text-white' : 'text-brand-navy/80 hover:bg-brand-navy/10 hover:text-brand-navy'
                 }`
               }
             >
@@ -54,23 +54,23 @@ function Navbar() {
           {user ? (
             <>
               {isAdmin && (
-                <Link to="/admin" className="btn-ghost">
+                <Link to="/admin" className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-brand-navy transition-colors hover:bg-brand-navy/10">
                   <ShieldCheck size={16} /> Admin
                 </Link>
               )}
-              <Link to="/dashboard" className="btn-ghost">
+              <Link to="/dashboard" className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-brand-navy transition-colors hover:bg-brand-navy/10">
                 <LayoutDashboard size={16} /> Dashboard
               </Link>
-              <button onClick={handleSignOut} className="btn-outline !px-4 !py-2">
+              <button onClick={handleSignOut} className="inline-flex items-center gap-2 rounded-full border border-brand-navy/40 px-4 py-2 text-sm font-semibold text-brand-navy transition-colors hover:bg-brand-navy/10">
                 <LogOut size={15} /> Sign out
               </button>
             </>
           ) : (
             <>
-              <Link to="/login" className="btn-ghost">
+              <Link to="/login" className="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold text-brand-navy transition-colors hover:bg-brand-navy/10">
                 Sign in
               </Link>
-              <Link to="/register" className="btn-primary !px-4 !py-2">
+              <Link to="/register" className="inline-flex items-center rounded-full bg-brand-navy px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-navyLight">
                 Get started
               </Link>
             </>
@@ -78,7 +78,7 @@ function Navbar() {
         </div>
 
         <button
-          className="rounded-lg p-2 text-slate-700 hover:bg-slate-100 md:hidden"
+          className="rounded-lg p-2 text-brand-navy hover:bg-brand-navy/10 md:hidden"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -87,37 +87,37 @@ function Navbar() {
       </div>
 
       {open && (
-        <nav className="border-t border-slate-100 bg-white px-4 pb-4 pt-2 md:hidden">
+        <nav className="border-t border-brand-navy/15 bg-brand-gold px-4 pb-4 pt-2 md:hidden">
           {NAV.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
               onClick={() => setOpen(false)}
-              className="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
+              className="block rounded-lg px-3 py-2.5 text-sm font-medium text-brand-navy hover:bg-brand-navy/10"
             >
               {item.label}
             </NavLink>
           ))}
           {user ? (
             <>
-              <Link to="/dashboard" onClick={() => setOpen(false)} className="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50">
+              <Link to="/dashboard" onClick={() => setOpen(false)} className="block rounded-lg px-3 py-2.5 text-sm font-medium text-brand-navy hover:bg-brand-navy/10">
                 Dashboard
               </Link>
               {isAdmin && (
-                <Link to="/admin" onClick={() => setOpen(false)} className="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50">
+                <Link to="/admin" onClick={() => setOpen(false)} className="block rounded-lg px-3 py-2.5 text-sm font-medium text-brand-navy hover:bg-brand-navy/10">
                   Admin
                 </Link>
               )}
-              <button onClick={handleSignOut} className="block w-full rounded-lg px-3 py-2.5 text-left text-sm font-medium text-red-600 hover:bg-red-50">
+              <button onClick={handleSignOut} className="block w-full rounded-lg px-3 py-2.5 text-left text-sm font-medium text-red-700 hover:bg-brand-navy/10">
                 Sign out
               </button>
             </>
           ) : (
             <>
-              <Link to="/login" onClick={() => setOpen(false)} className="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50">
+              <Link to="/login" onClick={() => setOpen(false)} className="block rounded-lg px-3 py-2.5 text-sm font-medium text-brand-navy hover:bg-brand-navy/10">
                 Sign in
               </Link>
-              <Link to="/register" onClick={() => setOpen(false)} className="block rounded-lg px-3 py-2.5 text-sm font-semibold text-brand-navy hover:bg-slate-50">
+              <Link to="/register" onClick={() => setOpen(false)} className="block rounded-lg px-3 py-2.5 text-sm font-semibold text-brand-navy hover:bg-brand-navy/10">
                 Get started
               </Link>
             </>

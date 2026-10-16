@@ -85,7 +85,6 @@ const STEPS = [
 export default function Home() {
   const [jobs, setJobs] = useState([])
   const [scholarships, setScholarships] = useState([])
-  const [stats, setStats] = useState({ jobs: 0, scholarships: 0, countries: 0 })
   const [query, setQuery] = useState('')
   const navigate = useNavigate()
 
@@ -103,20 +102,6 @@ export default function Home() {
       .order('deadline', { ascending: true, nullsLast: true })
       .limit(3)
       .then(({ data }) => setScholarships((data ?? []).filter((s) => s.is_active !== false)))
-    supabase
-      .from('site_stats')
-      .select('*')
-      .eq('id', 1)
-      .maybeSingle()
-      .then(({ data }) => {
-        if (data) {
-          setStats({
-            jobs: data.jobs_posted ?? 0,
-            scholarships: data.resources_shared ?? 0,
-            countries: data.countries ?? 0,
-          })
-        }
-      })
   }, [])
 
   const search = (e) => {
@@ -169,20 +154,6 @@ export default function Home() {
             </button>
           </form>
 
-          <div className="mt-10 flex flex-wrap gap-8">
-            <div>
-              <p className="font-display text-2xl font-extrabold">{stats.jobs}+</p>
-              <p className="text-xs uppercase tracking-wider text-slate-400">Opportunities posted</p>
-            </div>
-            <div>
-              <p className="font-display text-2xl font-extrabold">{stats.countries}+</p>
-              <p className="text-xs uppercase tracking-wider text-slate-400">Countries reached</p>
-            </div>
-            <div>
-              <p className="font-display text-2xl font-extrabold">24/7</p>
-              <p className="text-xs uppercase tracking-wider text-slate-400">AI career guidance</p>
-            </div>
-          </div>
         </div>
       </section>
 

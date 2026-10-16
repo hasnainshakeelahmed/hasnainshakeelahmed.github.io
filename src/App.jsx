@@ -21,13 +21,13 @@ import ResumeReview from './pages/dashboard/ResumeReview'
 import VerifyCertificate from './pages/public/VerifyCertificate'
 import Videos from './pages/public/Videos'
 import VideoBlog from './pages/public/VideoBlog'
-import Posts from './pages/public/Posts'
 import PostDetail from './pages/public/PostDetail'
 import Services from './pages/public/Services'
 import Links from './pages/public/Links'
 import IssueCertificate from './pages/admin/IssueCertificate'
 import ManageCertificates from './pages/admin/ManageCertificates'
 import ManagePosts from './pages/admin/ManagePosts'
+import ManageVolunteers from './pages/admin/ManageVolunteers'
 import ManageUsers from './pages/admin/ManageUsers'
 import ManageDonations from './pages/admin/ManageDonations'
 import AdminLayout from './pages/admin/AdminLayout'
@@ -78,7 +78,9 @@ export default function App() {
         <Route path="verify/:token" element={<VerifyCertificate />} />
         <Route path="videos" element={<Videos />} />
         <Route path="videos/:slug" element={<VideoBlog />} />
-        <Route path="posts" element={<Posts />} />
+        {/* Posts are not a standalone section: /posts redirects to Education;
+            /posts/:id detail pages keep working under their section. */}
+        <Route path="posts" element={<Navigate to="/education" replace />} />
         <Route path="posts/:id" element={<PostDetail />} />
         <Route path="services" element={<Services />} />
         <Route path="links" element={<Links />} />
@@ -117,7 +119,7 @@ export default function App() {
           <Route path="users" element={<ManageUsers />} />
           <Route path="donations" element={<ManageDonations />} />
           <Route path="education" element={<Placeholder title="Manage Education" />} />
-          <Route path="volunteers" element={<Placeholder title="Manage Volunteers" />} />
+          <Route path="volunteers" element={<ManageVolunteers />} />
           <Route path="settings" element={<Placeholder title="Admin Settings" />} />
         </Route>
         <Route path="*" element={<Placeholder title="Page not found" />} />

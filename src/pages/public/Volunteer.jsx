@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { HeartHandshake, CheckCircle2 } from 'lucide-react'
+import { supabase } from '../../lib/supabase'
 
 const ROLES = [
   'Content Research',
@@ -15,11 +16,26 @@ const ROLES = [
 export default function Volunteer() {
   const [submitted, setSubmitted] = useState(false)
   const [form, setForm] = useState({ name: '', email: '', role: ROLES[0], message: '' })
+  const [error, setError] = useState('')
+  const [saving, setSaving] = useState(false)
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault()
-    // Design phase: form shows a success state. Functions phase wires this
-    // to the volunteers table + admin review queue.
+    setSaving(true)
+    setError('')
+    const { error: insertError } = await supabase.from('volunteers').insert([
+      {
+        name: form.name.trim(),
+        email: form.email.trim(),
+        role: form.role,
+        message: form.message.trim() || null,
+      },
+    ])
+    setSaving(false)
+    if (insertError) {
+      setError(`Could not submit your application: ${insertError.message}. Please try again.`)
+      return
+    }
     setSubmitted(true)
   }
 
@@ -95,9 +111,10 @@ export default function Volunteer() {
             className="input min-h-[110px] resize-y"
             placeholder="Your skills, experience, and why you want to join…"
           />
-          <button type="submit" className="btn-primary mt-5 w-full">
-            Submit application
+          <button type="submit" disabled={saving} className="btn-primary mt-5 w-full">
+            {saving ? 'Submitting…' : 'Submit application'}
           </button>
+          {error && <p className="mt-3 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">{error}</p>}
           <p className="mt-3 text-center text-xs text-slate-400">
             We read every application personally.
           </p>

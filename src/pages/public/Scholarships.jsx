@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Search, GraduationCap } from 'lucide-react'
 import { supabase } from '../../lib/supabase'
 import { ScholarshipCard } from '../../components/ListingCard'
+import PostGuidesBlock from '../../components/PostGuidesBlock'
 import Seo from '../../components/Seo'
 
 const COVERAGES = ['All', 'Fully Funded', 'Partial Tuition', 'Monthly Stipend', 'Other']
@@ -112,6 +113,12 @@ export default function Scholarships() {
           ))}
         </div>
       )}
+
+      <PostGuidesBlock
+        group="scholarships"
+        title="Scholarship guides from our channel"
+        description="Step-by-step guides for the scholarships our WhatsApp channel shares — eligibility, deadlines, and how to apply."
+      />
     </div>
   )
 }

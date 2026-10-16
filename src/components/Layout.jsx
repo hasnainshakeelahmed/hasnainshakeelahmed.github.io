@@ -11,7 +11,6 @@ const NAV = [
   { to: '/scholarships', label: 'Scholarships' },
   { to: '/education', label: 'Education' },
   { to: '/videos', label: 'Videos' },
-  { to: '/posts', label: 'Posts' },
   { to: '/services', label: 'Services' },
   { to: '/community', label: 'Community' },
   { to: '/about', label: 'About' },

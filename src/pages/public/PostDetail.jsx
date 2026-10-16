@@ -5,6 +5,7 @@ import Seo from '../../components/Seo'
 import Reveal from '../../components/Reveal'
 import WhatsAppCTA from '../../components/WhatsAppCTA'
 import { supabase } from '../../lib/supabase'
+import { postGroupWithFallback, POST_GROUP_META } from '../../lib/postGroups'
 
 const GUIDE_MARKER = '📖 Detailed Guide'
 
@@ -114,6 +115,7 @@ export default function PostDetail() {
 
   const { caption, guide } = splitGuide(post.description)
   const channelMeta = CHANNEL_META[post.channel] || { label: post.channel, link: '#' }
+  const groupMeta = POST_GROUP_META[postGroupWithFallback(post)]
 
   return (
     <div className="container-x py-10">
@@ -126,12 +128,12 @@ export default function PostDetail() {
       <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1 text-sm text-slate-500">
         <Link to="/" className="hover:text-brand-navy hover:underline">Home</Link>
         <ChevronRight size={14} className="text-slate-300" />
-        <Link to="/posts" className="hover:text-brand-navy hover:underline">Posts</Link>
+        <Link to={groupMeta.path} className="hover:text-brand-navy hover:underline">{groupMeta.label}</Link>
         <ChevronRight size={14} className="text-slate-300" />
         <span className="max-w-[55vw] truncate font-medium text-brand-navy">{post.title}</span>
       </nav>
-      <Link to="/posts" className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-navy hover:underline">
-        <ArrowLeft size={15} /> All posts
+      <Link to={groupMeta.path} className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-navy hover:underline">
+        <ArrowLeft size={15} /> All {groupMeta.label.toLowerCase()} posts
       </Link>
 
       <article className="mx-auto mt-5 max-w-3xl">

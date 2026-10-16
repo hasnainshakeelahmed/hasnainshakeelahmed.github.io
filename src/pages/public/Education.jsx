@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { BookOpen, Search, ArrowUpRight, Clock } from 'lucide-react'
 import Seo from '../../components/Seo'
+import PostGuidesBlock from '../../components/PostGuidesBlock'
 import { EDUCATION_ITEMS, WEEKLY_GUIDES } from '../../data/siteContent'
 
 const CATEGORIES = ['All', 'Course', 'Weekly Guide']
@@ -124,6 +125,12 @@ export default function Education() {
       {courses.length === 0 && guides.length === 0 && (
         <p className="mt-8 text-sm text-slate-500">Nothing matches that search. Try a different keyword.</p>
       )}
+
+      <PostGuidesBlock
+        group="education"
+        title="Learning guides from our channel"
+        description="Courses, study skills, career guidance and ed-tech tools from our WhatsApp channel — with step-by-step guides."
+      />
     </div>
   )
 }

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Search, Briefcase, ArrowDownWideNarrow } from 'lucide-react'
 import { supabase } from '../../lib/supabase'
 import { JobCard } from '../../components/ListingCard'
+import PostGuidesBlock from '../../components/PostGuidesBlock'
 import Seo from '../../components/Seo'
 
 const TYPES = ['All', 'Full-time', 'Part-time', 'Internship', 'Freelance', 'Remote']
@@ -109,6 +110,12 @@ export default function Jobs() {
           ))}
         </div>
       )}
+
+      <PostGuidesBlock
+        group="jobs"
+        title="Job & internship guides from our channel"
+        description="Step-by-step guides for the openings our WhatsApp channel shares — how to apply, who can apply, and what to watch out for."
+      />
     </div>
   )
 }

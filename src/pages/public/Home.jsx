@@ -164,8 +164,8 @@ export default function Home() {
                 <div className="aspect-video w-full bg-black">
                   {heroPlaying ? (
                     <iframe
-                      src="https://www.youtube-nocookie.com/embed/FYsJuqu_3Ow?autoplay=1"
-                      title="I'm a University Student Building a Career Platform — Here's What I've Learned"
+                      src="https://www.youtube-nocookie.com/embed/BTWmQzuCjyc?autoplay=1"
+                      title="A Message from the Founder"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       allowFullScreen
                       className="h-full w-full"
@@ -175,11 +175,11 @@ export default function Home() {
                       type="button"
                       onClick={() => setHeroPlaying(true)}
                       className="group relative block h-full w-full text-left"
-                      aria-label="Play the founder's story video"
+                      aria-label="Play A Message from the Founder video"
                     >
                       <img
-                        src="https://i.ytimg.com/vi/FYsJuqu_3Ow/hqdefault.jpg"
-                        alt="Founder story video thumbnail"
+                        src="https://i.ytimg.com/vi/BTWmQzuCjyc/hqdefault.jpg"
+                        alt="A Message from the Founder video thumbnail"
                         loading="lazy"
                         className="h-full w-full object-cover"
                       />
@@ -192,12 +192,9 @@ export default function Home() {
                   )}
                 </div>
                 <div className="p-4 sm:p-5">
-                  <p className="font-display text-base font-bold">Watch the founder&apos;s story</p>
-                  <p className="mt-1 text-sm leading-relaxed text-slate-300">
-                    Why Career Radar exists, in the founder&apos;s own words.
-                  </p>
+                  <p className="font-display text-base font-bold">A Message from the Founder</p>
                   <a
-                    href="https://www.youtube.com/watch?v=FYsJuqu_3Ow"
+                    href="https://www.youtube.com/watch?v=BTWmQzuCjyc"
                     target="_blank"
                     rel="noreferrer"
                     className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-gold hover:underline"

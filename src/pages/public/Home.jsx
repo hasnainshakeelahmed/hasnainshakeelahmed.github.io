@@ -86,6 +86,7 @@ export default function Home() {
   const [jobs, setJobs] = useState([])
   const [scholarships, setScholarships] = useState([])
   const [query, setQuery] = useState('')
+  const [heroPlaying, setHeroPlaying] = useState(false)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -126,34 +127,87 @@ export default function Home() {
           }}
         />
         <div className="container-x relative py-16 sm:py-24">
-          <span className="badge hero-enter hero-enter-1 bg-brand-gold/15 text-brand-gold">
-            <Radar size={14} /> The career GPS for students everywhere
-          </span>
-          <h1 className="hero-enter hero-enter-2 mt-5 max-w-3xl font-display text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
-            Find opportunities.
-            <br />
-            Build your future.
-          </h1>
-          <p className="hero-enter hero-enter-3 mt-5 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
-            Verified scholarships, internships and jobs, AI career guidance, and
-            a global community — everything you need to move forward, in one place.
-          </p>
+          <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
+            <div>
+              <span className="badge hero-enter hero-enter-1 bg-brand-gold/15 text-brand-gold">
+                <Radar size={14} /> The career GPS for students everywhere
+              </span>
+              <h1 className="hero-enter hero-enter-2 mt-5 max-w-3xl font-display text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+                Find opportunities.
+                <br />
+                Build your future.
+              </h1>
+              <p className="hero-enter hero-enter-3 mt-5 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
+                Verified scholarships, internships and jobs, AI career guidance, and
+                a global community — everything you need to move forward, in one place.
+              </p>
 
-          <form onSubmit={search} className="hero-enter hero-enter-3 mt-8 flex max-w-xl items-center gap-2">
-            <div className="relative flex-1">
-              <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
-              <input
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search scholarships, jobs, internships…"
-                className="w-full rounded-full border-0 bg-white py-3.5 pl-11 pr-4 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-gold"
-              />
+              <form onSubmit={search} className="hero-enter hero-enter-3 mt-8 flex max-w-xl items-center gap-2">
+                <div className="relative flex-1">
+                  <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
+                  <input
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    placeholder="Search scholarships, jobs, internships…"
+                    className="w-full rounded-full border-0 bg-white py-3.5 pl-11 pr-4 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-gold"
+                  />
+                </div>
+                <button type="submit" className="btn-gold !px-6 !py-3.5">
+                  Search
+                </button>
+              </form>
             </div>
-            <button type="submit" className="btn-gold !px-6 !py-3.5">
-              Search
-            </button>
-          </form>
 
+            {/* Featured founder video */}
+            <div className="hero-enter hero-enter-3">
+              <div className="overflow-hidden rounded-2xl border border-white/15 bg-white/5 shadow-card">
+                <div className="aspect-video w-full bg-black">
+                  {heroPlaying ? (
+                    <iframe
+                      src="https://www.youtube-nocookie.com/embed/FYsJuqu_3Ow?autoplay=1"
+                      title="I'm a University Student Building a Career Platform — Here's What I've Learned"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      className="h-full w-full"
+                    />
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => setHeroPlaying(true)}
+                      className="group relative block h-full w-full text-left"
+                      aria-label="Play the founder's story video"
+                    >
+                      <img
+                        src="https://i.ytimg.com/vi/FYsJuqu_3Ow/hqdefault.jpg"
+                        alt="Founder story video thumbnail"
+                        loading="lazy"
+                        className="h-full w-full object-cover"
+                      />
+                      <span className="absolute inset-0 flex items-center justify-center bg-black/30 transition-colors group-hover:bg-black/45">
+                        <span className="flex h-16 w-16 items-center justify-center rounded-full bg-brand-gold text-brand-navy shadow-lg">
+                          <Play size={26} className="ml-1" fill="currentColor" />
+                        </span>
+                      </span>
+                    </button>
+                  )}
+                </div>
+                <div className="p-4 sm:p-5">
+                  <p className="font-display text-base font-bold">Watch the founder&apos;s story</p>
+                  <p className="mt-1 text-sm leading-relaxed text-slate-300">
+                    Why Career Radar exists, in the founder&apos;s own words.
+                  </p>
+                  <a
+                    href="https://www.youtube.com/watch?v=FYsJuqu_3Ow"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-gold hover:underline"
+                  >
+                    Watch on YouTube <ArrowRight size={14} />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

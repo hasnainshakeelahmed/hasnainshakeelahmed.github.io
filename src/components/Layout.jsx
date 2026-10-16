@@ -1,9 +1,10 @@
-import { useState } from 'react'
-import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom'
-import { Menu, X, Radar, LogOut, LayoutDashboard, ShieldCheck } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { Link, NavLink, Outlet, useNavigate, useLocation } from 'react-router-dom'
+import { Menu, X, LogOut, LayoutDashboard, ShieldCheck } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 import AIChatBubble from './AIChatBubble'
 import CookieConsent from './CookieConsent'
+import SiteLogo from './SiteLogo'
 
 const NAV = [
   { to: '/jobs', label: 'Jobs' },
@@ -29,13 +30,8 @@ function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
       <div className="container-x flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2.5">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-navy text-brand-gold">
-            <Radar size={20} />
-          </span>
-          <span className="font-display text-lg font-extrabold tracking-tight text-brand-navy">
-            Career<span className="text-brand-goldDark">Radar</span>
-          </span>
+        <Link to="/" className="flex items-center" aria-label="CareerRadar home">
+          <SiteLogo variant="light" className="h-10 w-10" />
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
@@ -137,14 +133,7 @@ function Footer() {
     <footer className="border-t border-slate-200 bg-brand-navy text-slate-300">
       <div className="container-x grid gap-10 py-12 md:grid-cols-4">
         <div>
-          <div className="flex items-center gap-2.5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-gold text-brand-navy">
-              <Radar size={20} />
-            </span>
-            <span className="font-display text-lg font-extrabold text-white">
-              Career<span className="text-brand-gold">Radar</span>
-            </span>
-          </div>
+          <SiteLogo variant="dark" className="h-10 w-10" />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
             The career GPS for students everywhere. Verified opportunities, AI
             guidance, and a global community — all in one place.
@@ -190,11 +179,19 @@ function Footer() {
 }
 
 export default function Layout() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 })
+  }, [pathname])
+
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar />
       <main className="flex-1">
-        <Outlet />
+        <div key={pathname} className="page-enter">
+          <Outlet />
+        </div>
       </main>
       <Footer />
       <AIChatBubble />

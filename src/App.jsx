@@ -22,6 +22,7 @@ import VerifyCertificate from './pages/public/VerifyCertificate'
 import Videos from './pages/public/Videos'
 import VideoBlog from './pages/public/VideoBlog'
 import Posts from './pages/public/Posts'
+import PostDetail from './pages/public/PostDetail'
 import Services from './pages/public/Services'
 import Links from './pages/public/Links'
 import IssueCertificate from './pages/admin/IssueCertificate'
@@ -78,6 +79,7 @@ export default function App() {
         <Route path="videos" element={<Videos />} />
         <Route path="videos/:slug" element={<VideoBlog />} />
         <Route path="posts" element={<Posts />} />
+        <Route path="posts/:id" element={<PostDetail />} />
         <Route path="services" element={<Services />} />
         <Route path="links" element={<Links />} />
         <Route path="login" element={<Login />} />

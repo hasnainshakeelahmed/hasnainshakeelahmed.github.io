@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Megaphone, Search, ExternalLink, Calendar } from 'lucide-react'
 import Seo from '../../components/Seo'
 import Reveal from '../../components/Reveal'
+import SiteLogo, { SILogo } from '../../components/SiteLogo'
 import { supabase } from '../../lib/supabase'
 
 const CHANNELS = [
@@ -83,7 +84,19 @@ export default function Posts() {
       </div>
 
       {loading ? (
-        <p className="mt-10 text-center text-sm text-slate-500">Loading posts…</p>
+        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} className="card overflow-hidden">
+              <div className="skeleton aspect-[4/3] !rounded-none" />
+              <div className="space-y-3 p-5">
+                <div className="skeleton h-3 w-28" />
+                <div className="skeleton h-5 w-full" />
+                <div className="skeleton h-4 w-5/6" />
+                <div className="skeleton h-4 w-2/3" />
+              </div>
+            </div>
+          ))}
+        </div>
       ) : list.length === 0 ? (
         <div className="mt-10 rounded-2xl bg-slate-50 px-6 py-12 text-center">
           <Megaphone size={28} className="mx-auto text-slate-300" />
@@ -97,16 +110,20 @@ export default function Posts() {
             <Reveal key={p.id} delay={i % 3}>
               <article className="card lift flex h-full flex-col overflow-hidden">
                 {p.image_url && (
-                  <div className="aspect-[4/3] overflow-hidden bg-brand-navySoft">
-                    <img src={p.image_url} alt={p.title} loading="lazy" className="h-full w-full object-cover" />
-                  </div>
+                  <Link to={`/posts/${p.id}`} className="block aspect-[4/3] overflow-hidden bg-brand-navySoft">
+                    <img src={p.image_url} alt={p.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
+                  </Link>
                 )}
                 <div className="flex flex-1 flex-col p-5">
                   <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-goldDark">
                     <span>{CHANNEL_META[p.channel]?.label || p.channel}</span>
                     {p.category && <span className="text-slate-400">· {p.category}</span>}
                   </p>
-                  <h2 className="mt-1.5 font-display text-base font-bold leading-snug text-brand-navy">{p.title}</h2>
+                  <h2 className="mt-1.5 font-display text-base font-bold leading-snug text-brand-navy">
+                    <Link to={`/posts/${p.id}`} className="hover:underline">
+                      {p.title}
+                    </Link>
+                  </h2>
                   {p.description && (
                     <p className="mt-2 line-clamp-3 flex-1 text-sm leading-relaxed text-slate-600">{p.description}</p>
                   )}
@@ -114,14 +131,12 @@ export default function Posts() {
                     <span className="flex items-center gap-1.5 text-xs text-slate-400">
                       <Calendar size={13} /> {new Date(p.published_at).toLocaleDateString()}
                     </span>
-                    <a
-                      href={p.post_url || CHANNEL_META[p.channel]?.link}
-                      target="_blank"
-                      rel="noreferrer"
+                    <Link
+                      to={`/posts/${p.id}`}
                       className="inline-flex items-center gap-1 text-sm font-semibold text-brand-navy hover:underline"
                     >
-                      View post <ExternalLink size={13} />
-                    </a>
+                      Read full post <ExternalLink size={13} />
+                    </Link>
                   </div>
                 </div>
               </article>
@@ -137,13 +152,18 @@ export default function Posts() {
             href={CHANNEL_META[key].link}
             target="_blank"
             rel="noreferrer"
-            className="card lift flex items-center justify-between p-5"
+            className="card lift flex items-center gap-4 p-5"
           >
-            <div>
+            {key === 'scholarships' ? (
+              <SILogo className="h-12 w-12" />
+            ) : (
+              <SiteLogo variant="light" compact className="h-12 w-12" />
+            )}
+            <div className="min-w-0 flex-1">
               <p className="font-display text-base font-bold text-brand-navy">{CHANNEL_META[key].label}</p>
               <p className="mt-0.5 text-sm text-slate-500">Follow on WhatsApp for daily posts.</p>
             </div>
-            <span className="btn-gold !px-4 !py-2">Follow →</span>
+            <span className="btn-gold shrink-0 !px-4 !py-2">Follow →</span>
           </a>
         ))}
       </div>

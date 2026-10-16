@@ -3,7 +3,7 @@
 // thumbnail banner + a direct link. Source of truth for IDs/titles/dates:
 // ~/workspace/faceless-channel/history.jsonl
 
-export const YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/@CareerRadar'
+export const YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/@careerradarai'
 
 export const youtubeUrl = (v) => `https://youtu.be/${v.videoId}`
 export const thumbnailUrl = (v) => `https://i.ytimg.com/vi/${v.videoId}/hqdefault.jpg`

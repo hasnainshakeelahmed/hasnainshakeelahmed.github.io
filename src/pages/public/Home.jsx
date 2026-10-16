@@ -12,12 +12,45 @@ import {
   Target,
   HeartHandshake,
   Radar,
+  BookOpen,
+  Play,
 } from 'lucide-react'
 import { supabase } from '../../lib/supabase'
 import { JobCard, ScholarshipCard } from '../../components/ListingCard'
 import AdSlot from '../../components/AdSlot'
 import Seo from '../../components/Seo'
 import Reveal from '../../components/Reveal'
+
+const GOALS = [
+  {
+    icon: GraduationCap,
+    title: 'I want a scholarship',
+    text: 'Fully funded scholarships with deadlines, eligibility, and step-by-step guides.',
+    to: '/scholarships',
+    cta: 'Browse scholarships',
+  },
+  {
+    icon: Briefcase,
+    title: 'I want a job or internship',
+    text: 'Verified roles for students and fresh graduates — remote and on-site.',
+    to: '/jobs',
+    cta: 'Browse jobs',
+  },
+  {
+    icon: BookOpen,
+    title: 'I want to study free at UoPeople',
+    text: 'The complete 7-part guide: accreditation, cost, scholarships, and how to apply.',
+    to: '/guides',
+    cta: 'Start the UoPeople guide',
+  },
+  {
+    icon: Play,
+    title: 'I want career guidance',
+    text: 'Videos and guides on CVs, interviews, freelancing, and study skills.',
+    to: '/videos',
+    cta: 'Watch guidance videos',
+  },
+]
 
 const FEATURES = [
   {
@@ -150,6 +183,34 @@ export default function Home() {
               <p className="text-xs uppercase tracking-wider text-slate-400">AI career guidance</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Start here — guided path */}
+      <section className="container-x py-14">
+        <Reveal>
+          <p className="section-kicker">Start here</p>
+          <h2 className="section-title mt-1">Pick your goal — we&apos;ll show you the path</h2>
+          <p className="mt-2 max-w-xl text-sm leading-relaxed text-slate-500 sm:text-base">
+            New here? Start with the goal that matches you. Each path leads to verified opportunities, guides,
+            and videos — no guesswork.
+          </p>
+        </Reveal>
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {GOALS.map((g, i) => (
+            <Reveal key={g.title} delay={i}>
+              <Link to={g.to} className="card lift group flex h-full flex-col p-6">
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-gold/15 text-brand-goldDark transition-transform duration-300 group-hover:scale-110">
+                  <g.icon size={22} />
+                </span>
+                <h3 className="mt-4 font-display text-base font-bold text-brand-navy">{g.title}</h3>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{g.text}</p>
+                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-navy">
+                  {g.cta} <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
+              </Link>
+            </Reveal>
+          ))}
         </div>
       </section>
 

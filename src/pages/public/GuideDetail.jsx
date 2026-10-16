@@ -1,7 +1,8 @@
 import { Link, useParams, Navigate } from 'react-router-dom'
-import { Clock, ArrowLeft, ArrowRight, CheckCircle2, ExternalLink } from 'lucide-react'
+import { Clock, ArrowLeft, ArrowRight, CheckCircle2, ExternalLink, ChevronRight } from 'lucide-react'
 import { UOPEOPLE_GUIDES } from '../../data/uopeopleGuides'
 import Seo from '../../components/Seo'
+import WhatsAppCTA from '../../components/WhatsAppCTA'
 
 export default function GuideDetail() {
   const { slug } = useParams()
@@ -18,7 +19,14 @@ export default function GuideDetail() {
         description={guide.summary}
         keywords={`university of the people, uopeople, ${guide.title.toLowerCase()}`}
       />
-      <Link to="/guides" className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-500 hover:text-brand-navy">
+      <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1 text-sm text-slate-500">
+        <Link to="/" className="hover:text-brand-navy hover:underline">Home</Link>
+        <ChevronRight size={14} className="text-slate-300" />
+        <Link to="/guides" className="hover:text-brand-navy hover:underline">Guides</Link>
+        <ChevronRight size={14} className="text-slate-300" />
+        <span className="max-w-[55vw] truncate font-medium text-brand-navy">{guide.title}</span>
+      </nav>
+      <Link to="/guides" className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-slate-500 hover:text-brand-navy">
         <ArrowLeft size={15} /> All guides
       </Link>
 
@@ -62,6 +70,8 @@ export default function GuideDetail() {
           </section>
         ))}
       </div>
+
+      <WhatsAppCTA channel="main" />
 
       <div className="mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 pt-6">
         {prev ? (

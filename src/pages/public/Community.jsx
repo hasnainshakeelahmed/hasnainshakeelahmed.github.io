@@ -2,10 +2,12 @@ import { Link } from 'react-router-dom'
 import { Users, MessagesSquare, GraduationCap, Briefcase, ArrowUpRight, HeartHandshake, ArrowRight } from 'lucide-react'
 import Seo from '../../components/Seo'
 import { COMMUNITY_CTA } from '../../data/siteContent'
+import SiteLogo, { SILogo } from '../../components/SiteLogo'
 
 const CHANNELS = [
   {
     icon: GraduationCap,
+    logo: 'main',
     name: 'Career Radar — Main Channel',
     tag: 'Education',
     text: 'Premium educational posts: courses, study skills, edu updates, career guidance and ed-tech tools. Daily at 8:00 PM.',
@@ -13,6 +15,7 @@ const CHANNELS = [
   },
   {
     icon: Briefcase,
+    logo: 'si',
     name: 'Career Radar — Scholarships & Internships',
     tag: 'Opportunities',
     text: 'A fresh verified opportunity every day — scholarships, internships and jobs, with a global-first mix. Daily at 4:00 PM.',
@@ -65,9 +68,15 @@ export default function Community() {
           {CHANNELS.map((c) => (
             <article key={c.name} className="card card-hover flex flex-col p-6">
               <div className="flex items-center justify-between">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-gold/15 text-brand-goldDark">
-                  <c.icon size={22} />
-                </span>
+                {c.logo === 'si' ? (
+                  <SILogo className="h-11 w-11" />
+                ) : c.logo === 'main' ? (
+                  <SiteLogo variant="light" compact className="h-11 w-11" />
+                ) : (
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-gold/15 text-brand-goldDark">
+                    <c.icon size={22} />
+                  </span>
+                )}
                 <span className="badge badge-navy">{c.tag}</span>
               </div>
               <h3 className="mt-4 font-display text-lg font-bold text-brand-navy">{c.name}</h3>

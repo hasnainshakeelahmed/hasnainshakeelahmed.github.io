@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
-import { Radar, AlertCircle, ShieldCheck, User } from 'lucide-react'
+import { AlertCircle, ShieldCheck, User } from 'lucide-react'
 import { supabase } from '../../lib/supabase'
+import SiteLogo from '../../components/SiteLogo'
 
 // One login page, two doors:
 // - Member login → the member dashboard.
@@ -64,9 +65,7 @@ export default function Login() {
     <div className="container-x flex justify-center py-16">
       <div className="w-full max-w-md">
         <div className="flex flex-col items-center text-center">
-          <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-navy text-brand-gold">
-            <Radar size={26} />
-          </span>
+          <SiteLogo variant="light" className="h-16 w-16" />
           <h1 className="mt-4 font-display text-3xl font-extrabold text-brand-navy">
             {isAdminTab ? 'Admin sign in' : 'Welcome back'}
           </h1>

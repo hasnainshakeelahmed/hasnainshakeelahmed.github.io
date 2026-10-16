@@ -122,9 +122,25 @@
     animation: float-slow 6s ease-in-out infinite;
   }
 
+  /* Page transition — re-triggered on route change (keyed wrapper in Layout) */
+  .page-enter {
+    animation: page-enter 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
   /* Card hover lift (applies on top of .card) */
   .lift {
     @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-cardHover;
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -156,7 +172,8 @@
     transition: none;
   }
   .hero-enter,
-  .float-slow {
+  .float-slow,
+  .page-enter {
     animation: none;
   }
 }

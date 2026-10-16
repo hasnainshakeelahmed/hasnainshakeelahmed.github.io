@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Radar, AlertCircle, CheckCircle2 } from 'lucide-react'
+import { AlertCircle, CheckCircle2 } from 'lucide-react'
 import { supabase } from '../../lib/supabase'
+import SiteLogo from '../../components/SiteLogo'
 
 export default function Register() {
   const [name, setName] = useState('')
@@ -52,9 +53,7 @@ export default function Register() {
     <div className="container-x flex justify-center py-16">
       <div className="w-full max-w-md">
         <div className="flex flex-col items-center text-center">
-          <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-navy text-brand-gold">
-            <Radar size={26} />
-          </span>
+          <SiteLogo variant="light" className="h-16 w-16" />
           <h1 className="mt-4 font-display text-3xl font-extrabold text-brand-navy">Create your account</h1>
           <p className="mt-1 text-sm text-slate-500">Free forever. Your career GPS starts here.</p>
         </div>

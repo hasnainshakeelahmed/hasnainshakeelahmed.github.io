@@ -1,6 +1,7 @@
 import { Youtube, MessageCircle, Globe, Linkedin, Facebook, Instagram, ExternalLink, Newspaper } from 'lucide-react'
 import Seo from '../../components/Seo'
 import Reveal from '../../components/Reveal'
+import SiteLogo, { SILogo } from '../../components/SiteLogo'
 
 // Everywhere to find Career Radar. Only verified links are clickable —
 // slots marked "coming soon" need the real URL before they go live.
@@ -21,12 +22,14 @@ const GROUPS = [
     links: [
       {
         icon: MessageCircle,
+        logo: 'main',
         label: 'CareerRadar — Main',
         desc: 'Daily premium educational posts: courses, study skills, career guidance, ed-tech tools.',
         url: 'https://whatsapp.com/channel/0029VakD7vA8fewly3jkHO3X',
       },
       {
         icon: MessageCircle,
+        logo: 'si',
         label: 'Scholarships & Internships',
         desc: 'Daily opportunities: scholarships, internships, and jobs from around the world.',
         url: 'https://whatsapp.com/channel/0029VbCOJrjCxoAtWxwUaB1m',
@@ -69,10 +72,8 @@ export default function Links() {
         keywords="career radar links, career radar socials, career radar whatsapp, career radar youtube"
       />
       <Reveal>
-        <div className="text-center">
-          <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-navy font-display text-xl font-extrabold text-brand-gold">
-            CR
-          </span>
+        <div className="flex flex-col items-center text-center">
+          <SiteLogo variant="light" className="h-14 w-14" />
           <h1 className="mt-4 font-display text-3xl font-extrabold text-brand-navy">Career Radar</h1>
           <p className="mt-1 text-sm text-slate-500">Find opportunities. Build your future.</p>
         </div>
@@ -91,9 +92,15 @@ export default function Links() {
                     rel="noreferrer"
                     className="card lift flex items-center gap-4 p-4"
                   >
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-navy text-brand-gold">
-                      <link.icon size={20} />
-                    </span>
+                    {link.logo === 'si' ? (
+                      <SILogo className="h-11 w-11" />
+                    ) : link.logo === 'main' ? (
+                      <SiteLogo variant="light" compact className="h-11 w-11" />
+                    ) : (
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-navy text-brand-gold">
+                        <link.icon size={20} />
+                      </span>
+                    )}
                     <span className="min-w-0 flex-1">
                       <span className="block font-display text-base font-bold text-brand-navy">{link.label}</span>
                       <span className="block text-sm leading-snug text-slate-500">{link.desc}</span>

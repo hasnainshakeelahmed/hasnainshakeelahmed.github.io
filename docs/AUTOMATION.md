@@ -124,14 +124,16 @@ title / organisation / deadline / apply link / location.
    `supabase/migrations/202610160003_scholarships_public_active_only.sql`
    — hides draft scholarships (`is_active = FALSE`) from public reads.
    (Jobs already hide inactive rows via RLS.)
-2. **Give the discovery job its env vars** (secure env setup, never in
-   cron text): `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY`.
+2. **No env secret needed for the discovery job.** It uses the stored
+   `custom.supabase` credential (service role key) via the surrogate
+   exchange — the script never sees a raw key.
 
 **Schedule (daily cron, main chat):**
 
 > Each day, run from `~/workspace/career-radar-v2`:
-> `SUPABASE_URL=<url> SUPABASE_SERVICE_ROLE_KEY=<secret from secure env> \
->   python3 scripts/discover_openings.py --apply`
+> `python3 scripts/discover_openings.py --apply`
+> (auth uses the stored `custom.supabase` credential via the surrogate —
+> no env secret needed).
 > Review new drafts in Admin → Jobs / Scholarships and publish the good
 > ones (tick `is_active`). The script never invents deadlines, links, or
 > details — anything unverified arrives as a draft.
@@ -155,5 +157,5 @@ python3 scripts/discover_openings.py --dry-run
 | Secret | Used by | Set where |
 |---|---|---|
 | `CHANNEL_POST_SECRET` | Edge Function + publish script | Dashboard → Settings → Edge Functions + posting jobs' env |
-| `SUPABASE_SERVICE_ROLE_KEY` | Discovery script (bypasses RLS) | Discovery job's env only |
+| `SUPABASE_SERVICE_ROLE_KEY` | Discovery script (bypasses RLS) | Stored `custom.supabase` credential via surrogate; no env secret |
 | YouTube OAuth token files | Video sync | `~/workspace/faceless-channel/.youtube_*.json` (already present) |

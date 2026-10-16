@@ -29,9 +29,9 @@ Junk filters (a listing index / nav page is NOT an opportunity):
   - a page with many dates is a listing index, not a detail page
   - a page with neither a deadline nor an Apply anchor is skipped
 
-Env (required for --apply; dry-run needs none):
-  SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY  (service key bypasses RLS;
-  never commit it, never put it in cron text — env only)
+Auth (for --apply; dry-run needs none):
+  Uses the stored custom.supabase credential (service role key) via the
+  surrogate exchange — no env secret, no raw key anywhere in this script.
 
 Usage:
   python3 scripts/discover_openings.py --dry-run   # default: report only
@@ -42,13 +42,15 @@ import argparse
 import datetime as dt
 import html
 import json
-import os
 import re
 import sys
 import time
 import urllib.request
 import urllib.error
 import urllib.parse
+
+sys.path.insert(0, "/opt/muse/skills/custom-connector-setup/bin")
+from dynamic_credentials import add_surrogate_to_request, read_json_response
 
 # Bot-identifying UA (standard bot format: name + contact URL).
 UA = ("Mozilla/5.0 (compatible; CareerRadar-Discovery/1.0; "
@@ -275,27 +277,32 @@ def extract_location(text: str) -> str | None:
 
 
 # ---------------------------------------------------------------- supabase
-def sb_headers() -> dict:
-    return {
-        "apikey": os.environ["SUPABASE_SERVICE_ROLE_KEY"],
-        "Authorization": f"Bearer {os.environ['SUPABASE_SERVICE_ROLE_KEY']}",
-        "Content-Type": "application/json",
-    }
+# Auth uses the stored custom.supabase credential (service role key) via the
+# surrogate exchange — the script never sees or sends a raw secret.
+SB_HOST = "oksusvhexmfhhamvupmj.supabase.co"
+SB_BASE = f"https://{SB_HOST}/rest/v1"
+SB_CREDENTIAL = "custom.supabase"
 
 
-def sb_url() -> str:
-    return os.environ["SUPABASE_URL"].rstrip("/")
+def sb_request(url: str, *, data: bytes | None = None,
+               extra_headers: dict | None = None,
+               method: str | None = None) -> urllib.request.Request:
+    headers = {"Accept": "application/json"}
+    if extra_headers:
+        headers.update(extra_headers)
+    req = urllib.request.Request(url, data=data, headers=headers, method=method)
+    add_surrogate_to_request(req, SB_CREDENTIAL, allowed_hosts=[SB_HOST])
+    return req
 
 
 def already_exists(apply_url: str) -> bool:
     for table in ("jobs", "scholarships"):
         q = urllib.parse.quote(apply_url, safe="")
-        req = urllib.request.Request(
-            f"{sb_url()}/rest/v1/{table}?apply_url=eq.{q}&select=id&limit=1",
-            headers=sb_headers())
         try:
+            req = sb_request(
+                f"{SB_BASE}/{table}?apply_url=eq.{q}&select=id&limit=1")
             with urllib.request.urlopen(req, timeout=25) as resp:
-                if json.loads(resp.read().decode("utf-8")):
+                if read_json_response(resp):
                     return True
         except Exception as e:
             print(f"  dedupe check failed on {table}: {e}", file=sys.stderr)
@@ -303,14 +310,15 @@ def already_exists(apply_url: str) -> bool:
 
 
 def sb_insert(table: str, row: dict) -> dict | None:
-    req = urllib.request.Request(
-        f"{sb_url()}/rest/v1/{table}",
+    req = sb_request(
+        f"{SB_BASE}/{table}",
         data=json.dumps(row).encode("utf-8"),
-        headers={**sb_headers(), "Prefer": "return=representation"},
+        extra_headers={"Content-Type": "application/json",
+                       "Prefer": "return=representation"},
         method="POST")
     try:
         with urllib.request.urlopen(req, timeout=30) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
+            data = read_json_response(resp)
             return data[0] if isinstance(data, list) and data else None
     except urllib.error.HTTPError as e:
         print(f"  insert into {table} failed: HTTP {e.code}: "
@@ -442,12 +450,6 @@ def main() -> int:
                    help="insert into the DB (default is dry-run)")
     args = p.parse_args()
     apply = args.apply
-
-    if apply and (not os.environ.get("SUPABASE_URL")
-                  or not os.environ.get("SUPABASE_SERVICE_ROLE_KEY")):
-        print("error: SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY required "
-              "for --apply", file=sys.stderr)
-        return 2
 
     found = discover()
     print(f"\n{len(found)} candidates")

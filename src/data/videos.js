@@ -1568,7 +1568,111 @@ export const VIDEOS = [
     ]
   },
   },
-]
+]  {
+    slug: 'stamps-scholarship-2027-full-ride-at-the-university-of-miami',
+    videoId: 'rEuXdO5hNCQ',
+    title: 'Stamps Scholarship 2027: Full Ride at the University of Miami (Deadline 1 November)',
+    type: 'long',
+    date: '2026-10-17',
+    category: 'Scholarships',
+    description: [
+      'Stamps Scholarship 2027: the complete, verified guide to the fully funded undergraduate scholarship at the University of Miami — what it covers, who can win it, Early Decision vs Early Action, the interview rounds, and a 15-day action plan. Applications close 1 November 2026.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'become-a-data-analyst-without-a-new-degree',
+    videoId: 'Kd9xSfzX1_U',
+    title: 'Become a Data Analyst Without a New Degree',
+    type: 'short',
+    date: '2026-10-16',
+    category: 'Careers',
+    description: [
+      'Start in data analytics with Google\'s Data Analytics Certificate on Coursera — spreadsheets, SQL, R, and Tableau — then prove it with one small portfolio project.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'your-degree-expires-in-five-years',
+    videoId: '20N59Cg8ZmE',
+    title: 'Your Degree Expires in Five Years',
+    type: 'short',
+    date: '2026-10-15',
+    category: 'Career Guidance',
+    description: [
+      '39% of core job skills change by 2030 — here are the 3 skills that actually matter, plus a 30-minute daily plan.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'stop-cramming-this-free-app-remembers-for-you',
+    videoId: 'pQvKl9QK1S0',
+    title: 'Stop Cramming — This Free App Remembers for You',
+    type: 'short',
+    date: '2026-10-14',
+    category: 'Study Skills',
+    description: [
+      'Stop cramming. Anki\'s spaced repetition shows you each flashcard right before you forget it — one question per card, 20 minutes a day, and it sticks.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'stop-getting-bad-ai-answers-do-this',
+    videoId: 'AdPE4TmrcHI',
+    title: 'Stop Getting Bad AI Answers (Do This)',
+    type: 'long',
+    date: '2026-07-29',
+    category: 'General',
+    description: [
+      'In this video you\'ll learn how to: ✅ Control AI output using few-shot prompting ✅ Give AI examples instead of instructions for better results ✅ Fix inconsistent or off-tone AI responses ✅ Use this technique in ChatGPT, Claude, or any AI tool ✅ Apply this to writing, coding, or content tasks',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'chain-of-thought-role-prompting-the-only-2-ai-tricks-you-nee',
+    videoId: 'HXGscUyvVRE',
+    title: 'Chain of Thought & Role Prompting: The Only 2 AI Tricks You Need',
+    type: 'long',
+    date: '2026-07-28',
+    category: 'General',
+    description: [
+      'Most people ask AI a question and expect a great answer. That\'s not how it works.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'what-career-radar-actually-is-and-where-we-re-taking-it',
+    videoId: 'AORVEf-eNd0',
+    title: 'What Career Radar Actually Is (And Where We\'re Taking It)',
+    type: 'long',
+    date: '2026-07-25',
+    category: 'General',
+    description: [
+      'Career Radar isn\'t just a page that reposts opportunities — it\'s a growing career ecosystem for students and early-career professionals. In this video, I break down what Career Radar actually is today, and where we\'re taking it: from a student community to an AI-powered career platform helping you discover opportunities, build skills, grow your network, and eventually connect directly with employers.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'why-i-built-career-radar-a-better-way-to-find-scholarships-j',
+    videoId: 'BTWmQzuCjyc',
+    title: 'Why I Built Career Radar | A Better Way to Find Scholarships, Jobs & Career Opportunities',
+    type: 'long',
+    date: '2026-07-08',
+    category: 'Scholarships',
+    description: [
+      'Welcome to Career Radar! Career Radar is an AI-powered career community built to help students and early-career professionals discover opportunities, develop in-demand skills, and connect with the right people.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)
 export const longVideos = VIDEOS.filter((v) => v.type === 'long')

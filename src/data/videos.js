@@ -1569,6 +1569,19 @@ export const VIDEOS = [
   },
   },
 ]  {
+    slug: 'your-notes-are-forgetting-everything-this-free-app-fixes-it',
+    videoId: 't0E9kjJ_TMk',
+    title: 'Your Notes Are Forgetting Everything — This Free App Fixes It',
+    type: 'short',
+    date: '2026-10-18',
+    category: 'General',
+    description: [
+      'Obsidian is a free note-taking app that links your notes into a second brain. Link concepts, see the graph view, and stop cramming.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
     slug: 'stamps-scholarship-2027-full-ride-at-the-university-of-miami',
     videoId: 'rEuXdO5hNCQ',
     title: 'Stamps Scholarship 2027: Full Ride at the University of Miami (Deadline 1 November)',

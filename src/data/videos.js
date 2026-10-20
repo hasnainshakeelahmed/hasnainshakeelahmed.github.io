@@ -1568,7 +1568,7 @@ export const VIDEOS = [
     ]
   },
   },
-]  {
+  {
     slug: 'your-notes-are-forgetting-everything-this-free-app-fixes-it',
     videoId: 't0E9kjJ_TMk',
     title: 'Your Notes Are Forgetting Everything — This Free App Fixes It',
@@ -1685,7 +1685,46 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
-
+  {
+    slug: 'stop-sending-your-cv-like-this',
+    videoId: 'b_hHyQ05fN8',
+    title: 'Stop Sending Your CV Like This',
+    type: 'short',
+    date: '2026-10-19',
+    category: 'Career Guidance',
+    description: [
+      'The 3-line cold email that actually gets internship replies: one line about them, one line of proof about you, one clear ask. No long CV, no begging.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'eiffel-excellence-scholarship-2027-1-200-month-to-study-in-f',
+    videoId: 'r5j-CKxsaaA',
+    title: 'Eiffel Excellence Scholarship 2027: €1,200/Month to Study in France — How to Win It',
+    type: 'long',
+    date: '2026-10-20',
+    category: 'Scholarships',
+    description: [
+      'The France Excellence Eiffel Scholarship 2027 pays international students €1,200/month (master\'s) or €2,100/month (PhD) to study in France — plus flights, health insurance and housing help. This complete Eiffel Excellence Scholarship guide covers eligibility, benefits, the 6 January 2027 deadline, how university nomination works, and the mistakes that get applications rejected.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'stop-paying-for-coding-courses',
+    videoId: 'tk9IHE4CmlY',
+    title: 'Stop Paying for Coding Courses',
+    type: 'short',
+    date: '2026-10-19',
+    category: 'General',
+    description: [
+      'freeCodeCamp teaches coding completely free — learn by building real projects, earn certificates, and publish them on GitHub to prove you can build.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)
 export const longVideos = VIDEOS.filter((v) => v.type === 'long')

@@ -16,9 +16,11 @@ export default function Videos() {
   const [query, setQuery] = useState('')
 
   const list = useMemo(() => {
-    return VIDEOS.filter((v) => (filter === 'all' || v.type === filter)).filter((v) =>
-      query ? (v.title + ' ' + v.category).toLowerCase().includes(query.toLowerCase()) : true,
-    )
+    return VIDEOS.filter((v) => (filter === 'all' || v.type === filter))
+      .filter((v) =>
+        query ? (v.title + ' ' + v.category).toLowerCase().includes(query.toLowerCase()) : true,
+      )
+      .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
   }, [filter, query])
 
   return (

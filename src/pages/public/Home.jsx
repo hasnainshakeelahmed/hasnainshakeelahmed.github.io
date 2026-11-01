@@ -126,16 +126,19 @@ export default function Home() {
               'radial-gradient(600px 300px at 80% -10%, rgba(242,183,5,0.35), transparent), radial-gradient(500px 300px at 10% 110%, rgba(242,183,5,0.2), transparent)',
           }}
         />
+        {/* Lively drifting blobs */}
+        <div className="blob blob-drift-1 left-[8%] top-[10%] h-56 w-56 bg-brand-gold/40" />
+        <div className="blob blob-drift-2 right-[6%] bottom-[8%] h-72 w-72 bg-orange-500/30" />
         <div className="container-x relative py-16 sm:py-24">
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
             <div>
-              <span className="badge hero-enter hero-enter-1 bg-brand-gold/15 text-brand-gold">
+              <span className="badge pop-in bg-brand-gold/15 text-brand-gold" style={{ animationDelay: '0.15s' }}>
                 <Radar size={14} /> The career GPS for students everywhere
               </span>
               <h1 className="hero-enter hero-enter-2 mt-5 max-w-3xl font-display text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
                 Find opportunities.
                 <br />
-                Build your future.
+                <span className="gradient-text">Build your future.</span>
               </h1>
               <p className="hero-enter hero-enter-3 mt-5 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
                 Verified scholarships, internships and jobs, AI career guidance, and

@@ -12,11 +12,13 @@ import SiteLogo from '../../components/SiteLogo'
 export default function Login() {
   const [searchParams] = useSearchParams()
   const [tab, setTab] = useState(searchParams.get('tab') === 'admin' ? 'admin' : 'member')
+  const [mode, setMode] = useState('login') // 'login' | 'forgot'
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [notice, setNotice] = useState('')
   const [loading, setLoading] = useState(false)
+  const [resetSent, setResetSent] = useState(false)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -60,6 +62,24 @@ export default function Login() {
   }
 
   const isAdminTab = tab === 'admin'
+
+  const sendReset = async (e) => {
+    e.preventDefault()
+    setError('')
+    setNotice('')
+    setLoading(true)
+    const { error: resetError } = await supabase.auth.resetPasswordForEmail(email.trim(), {
+      redirectTo: `${window.location.origin}/reset-password`,
+    })
+    setLoading(false)
+    if (resetError) {
+      setError(resetError.message)
+      return
+    }
+    setResetSent(true)
+  }
+
+  const showForgot = mode === 'forgot' && !isAdminTab
 
   return (
     <div className="container-x flex justify-center py-16">
@@ -108,7 +128,7 @@ export default function Login() {
           </button>
         </div>
 
-        <form onSubmit={submit} className="card mt-4 p-6">
+        <form onSubmit={showForgot ? sendReset : submit} className="card mt-4 p-6">
           {notice && (
             <p className="mb-4 rounded-xl bg-amber-50 px-3.5 py-3 text-sm text-amber-800">{notice}</p>
           )}
@@ -117,6 +137,28 @@ export default function Login() {
               <AlertCircle size={16} className="mt-0.5 shrink-0" /> {error}
             </p>
           )}
+          {showForgot && resetSent ? (
+            <div className="text-center">
+              <p className="font-display text-lg font-bold text-brand-navy">Check your inbox</p>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                If an account exists for <span className="font-semibold">{email}</span>, a password reset
+                link is on its way. It expires in 1 hour — check spam if you don't see it.
+              </p>
+              <button
+                type="button"
+                onClick={() => { setMode('login'); setResetSent(false); setError('') }}
+                className="btn-outline mt-6 w-full"
+              >
+                Back to sign in
+              </button>
+            </div>
+          ) : (
+            <>
+              {showForgot && (
+                <p className="mb-4 text-sm leading-relaxed text-slate-600">
+                  Enter your account email and we'll send you a link to reset your password.
+                </p>
+              )}
           {isAdminTab && (
             <p className="mb-4 rounded-xl bg-brand-navySoft px-3.5 py-3 text-sm text-slate-600">
               Admin access is assigned by the Career Radar team. You cannot sign up as an admin — if your account
@@ -133,26 +175,56 @@ export default function Login() {
             placeholder="you@example.com"
             autoComplete="email"
           />
-          <label className="label mt-4">Password</label>
-          <input
-            required
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="input"
-            placeholder="Your password"
-            autoComplete="current-password"
-          />
+          {!showForgot && (
+            <>
+              <div className="mt-4 flex items-center justify-between">
+                <label className="label !mb-0">Password</label>
+                {!isAdminTab && (
+                  <button
+                    type="button"
+                    onClick={() => { setMode('forgot'); setError(''); setNotice('') }}
+                    className="text-xs font-semibold text-brand-navy hover:underline"
+                  >
+                    Forgot password?
+                  </button>
+                )}
+              </div>
+              <input
+                required
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="input mt-1.5"
+                placeholder="Your password"
+                autoComplete="current-password"
+              />
+            </>
+          )}
           <button type="submit" disabled={loading} className="btn-primary mt-6 w-full">
-            {loading ? 'Signing in…' : isAdminTab ? 'Sign in as admin' : 'Sign in'}
+            {loading ? 'Please wait…' : showForgot ? 'Send reset link' : isAdminTab ? 'Sign in as admin' : 'Sign in'}
           </button>
-          {!isAdminTab && (
+          {showForgot ? (
             <p className="mt-4 text-center text-sm text-slate-500">
-              No account yet?{' '}
-              <Link to="/register" className="font-semibold text-brand-navy">
-                Create one
-              </Link>
+              Remembered it?{' '}
+              <button
+                type="button"
+                onClick={() => { setMode('login'); setError('') }}
+                className="font-semibold text-brand-navy"
+              >
+                Back to sign in
+              </button>
             </p>
+          ) : (
+            !isAdminTab && (
+              <p className="mt-4 text-center text-sm text-slate-500">
+                No account yet?{' '}
+                <Link to="/register" className="font-semibold text-brand-navy">
+                  Create one
+                </Link>
+              </p>
+            )
+          )}
+            </>
           )}
         </form>
       </div>

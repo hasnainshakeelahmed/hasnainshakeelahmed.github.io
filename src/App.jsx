@@ -16,6 +16,7 @@ import Guides from './pages/public/Guides'
 import GuideDetail from './pages/public/GuideDetail'
 import Login from './pages/auth/Login'
 import Register from './pages/auth/Register'
+import ResetPassword from './pages/auth/ResetPassword'
 import Dashboard from './pages/dashboard/Dashboard'
 import ResumeReview from './pages/dashboard/ResumeReview'
 import VerifyCertificate from './pages/public/VerifyCertificate'
@@ -86,6 +87,7 @@ export default function App() {
         <Route path="links" element={<Links />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+        <Route path="reset-password" element={<ResetPassword />} />
         <Route
           path="dashboard"
           element={

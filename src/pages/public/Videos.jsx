@@ -11,17 +11,33 @@ const FILTERS = [
   { key: 'short', label: 'Shorts' },
 ]
 
+const videoText = (v) =>
+  [v.title, v.category, ...(Array.isArray(v.description) ? v.description : [v.description || ''])].join(' ')
+
+const TOPIC_FILTERS = [
+  { key: 'all', label: 'All topics', test: () => true },
+  { key: 'jobs', label: 'Jobs', test: (v) => /job/i.test(videoText(v)) },
+  { key: 'advice', label: 'Advice', test: (v) => v.category === 'Career Guidance' || /advice|guidance|mistake|tip/i.test(videoText(v)) },
+  { key: 'cv', label: 'CV', test: (v) => /\bcv\b|resume/i.test(videoText(v)) },
+  { key: 'admission', label: 'Admission', test: (v) => /admission|apply|application|enroll/i.test(videoText(v)) },
+  { key: 'scholarship', label: 'Scholarships', test: (v) => /scholarship/i.test(videoText(v)) },
+]
+
 export default function Videos() {
   const [filter, setFilter] = useState('all')
+  const [topic, setTopic] = useState('all')
   const [query, setQuery] = useState('')
+
+  const activeTopic = TOPIC_FILTERS.find((t) => t.key === topic) || TOPIC_FILTERS[0]
 
   const list = useMemo(() => {
     return VIDEOS.filter((v) => (filter === 'all' || v.type === filter))
+      .filter((v) => activeTopic.test(v))
       .filter((v) =>
         query ? (v.title + ' ' + v.category).toLowerCase().includes(query.toLowerCase()) : true,
       )
       .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
-  }, [filter, query])
+  }, [filter, topic, query])
 
   return (
     <div className="container-x py-10">
@@ -65,6 +81,20 @@ export default function Videos() {
             className="input !pl-9"
           />
         </label>
+      </div>
+
+      <div className="mt-3 flex flex-wrap items-center gap-2">
+        {TOPIC_FILTERS.map((t) => (
+          <button
+            key={t.key}
+            onClick={() => setTopic(t.key)}
+            className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+              topic === t.key ? 'bg-brand-gold text-brand-navy' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+            }`}
+          >
+            {t.label}
+          </button>
+        ))}
       </div>
 
       <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

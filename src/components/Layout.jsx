@@ -3,6 +3,7 @@ import { Link, NavLink, Outlet, useNavigate, useLocation } from 'react-router-do
 import { Menu, X, LogOut, LayoutDashboard, ShieldCheck } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 import AIChatBubble from './AIChatBubble'
+import AnnouncementBar from './AnnouncementBar'
 import CookieConsent from './CookieConsent'
 import SiteLogo from './SiteLogo'
 
@@ -186,6 +187,7 @@ export default function Layout() {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <AnnouncementBar />
       <Navbar />
       <main className="flex-1">
         <div key={pathname} className="page-enter">

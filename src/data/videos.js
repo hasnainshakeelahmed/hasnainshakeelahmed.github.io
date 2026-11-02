@@ -2010,6 +2010,19 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
+  {
+    slug: 'erasmus-mundus-scholarship-2027-fully-funded-master-s-in-eur',
+    videoId: '2pzUWO1BYcI',
+    title: 'Erasmus Mundus Scholarship 2027: Fully Funded Master\'s in Europe — How to Win It',
+    type: 'long',
+    date: '2026-11-02',
+    category: 'Scholarships',
+    description: [
+      'The Erasmus Mundus Scholarship 2027 is open: a fully funded master\'s degree in Europe paying €1,400/month, with tuition, travel and insurance covered. This guide covers how Erasmus Mundus Joint Masters work, who can apply, the real deadlines for the 2027 intake (January–February 2027 for most programmes), how to apply, and the mistake that kills most applications.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
 ]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)

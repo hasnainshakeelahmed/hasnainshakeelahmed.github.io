@@ -12,7 +12,7 @@ const FOUNDER_LINKEDIN = ''
 const FOUNDER = {
   name: 'Hasnain Shakeel Ahmed',
   role: 'Founder',
-  img: '/images/team/hasnain.jpg',
+  img: '/images/team/hasnain.jpeg',
   bio: 'Founded Career Radar to make verified opportunities and honest career guidance available to every student.',
 }
 

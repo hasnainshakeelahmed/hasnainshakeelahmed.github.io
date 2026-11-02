@@ -43,6 +43,7 @@ const NAV = [
   { to: '/services', label: 'Services' },
   { to: '/community', label: 'Community' },
   { to: '/about', label: 'About' },
+  { to: '/donate', label: 'Support us' },
 ]
 
 function Navbar() {

@@ -163,6 +163,7 @@ export default function Home() {
 
             {/* Featured founder video */}
             <div className="hero-enter hero-enter-3">
+              <div className="hero-video-glow">
               <div className="overflow-hidden rounded-2xl border border-white/15 bg-white/5 shadow-card">
                 <div className="aspect-video w-full bg-black">
                   {heroPlaying ? (
@@ -205,6 +206,7 @@ export default function Home() {
                     Watch on YouTube <ArrowRight size={14} />
                   </a>
                 </div>
+              </div>
               </div>
             </div>
           </div>

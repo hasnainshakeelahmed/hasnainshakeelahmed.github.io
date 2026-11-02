@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useNavigate, useLocation } from 'react-router-dom'
-import { Menu, X, LogOut, LayoutDashboard, ShieldCheck, Youtube, Linkedin } from 'lucide-react'
+import { Menu, X, LogOut, LayoutDashboard, ShieldCheck, Youtube, Linkedin, Instagram } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 import AIChatBubble from './AIChatBubble'
 import AnnouncementBar from './AnnouncementBar'
 import CookieConsent from './CookieConsent'
 import SiteLogo from './SiteLogo'
 
-// Social links shown as small icons in the navbar (top-right). Add Instagram
-// here once the URL is confirmed.
+// Social links shown as small icons in the navbar (top-right).
 const SOCIALS = [
   { icon: Youtube, label: 'YouTube', url: 'https://www.youtube.com/@CareerRadar' },
   { icon: Linkedin, label: 'LinkedIn', url: 'https://www.linkedin.com/company/careerradarofficial/' },
+  { icon: Instagram, label: 'Instagram', url: 'https://www.instagram.com/careerradar.ai/' },
 ]
 
 function SocialIcons({ onClick }) {

@@ -59,7 +59,7 @@ function Navbar() {
     <header className="sticky top-0 z-50 border-b border-brand-goldDark/50 bg-brand-gold shadow-sm">
       <div className="container-x flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center" aria-label="CareerRadar home">
-          <SiteLogo variant="light" className="h-10 w-10" />
+          <SiteLogo variant="light" className="h-14 w-14" />
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">

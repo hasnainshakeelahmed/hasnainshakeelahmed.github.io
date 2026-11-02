@@ -28,7 +28,7 @@ export default function AnnouncementBar() {
   }
 
   return (
-    <div className="relative bg-gradient-to-r from-indigo-600 via-violet-600 to-purple-600 text-white">
+    <div className="relative bg-gradient-to-r from-brand-navy via-brand-navyLight to-brand-navy text-white">
       <div className="container-x flex flex-wrap items-center justify-center gap-x-6 gap-y-2 py-2.5 pr-10 text-center">
         <p className="font-serif text-base sm:text-lg">
           Ask Questions Directly on{' '}

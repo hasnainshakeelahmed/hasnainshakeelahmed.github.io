@@ -38,16 +38,16 @@ const GROUPS = [
         icon: Newspaper,
         label: 'Global Radar',
         desc: 'Short, sourced geopolitical news — separate brand, separate channel.',
-        url: null,
+        url: 'https://whatsapp.com/channel/0029VbAjS8LEAKWNlCPLpH2S',
       },
     ],
   },
   {
     heading: 'Follow',
     links: [
-      { icon: Linkedin, label: 'LinkedIn', desc: 'Career Radar on LinkedIn.', url: null },
+      { icon: Linkedin, label: 'LinkedIn', desc: 'Career Radar on LinkedIn.', url: 'https://www.linkedin.com/company/careerradarofficial/' },
       { icon: Facebook, label: 'Facebook', desc: 'Career Radar on Facebook.', url: null },
-      { icon: Instagram, label: 'Instagram', desc: 'Career Radar on Instagram.', url: null },
+      { icon: Instagram, label: 'Instagram', desc: 'Career Radar on Instagram.', url: 'https://www.instagram.com/careerradar.ai/' },
     ],
   },
   {

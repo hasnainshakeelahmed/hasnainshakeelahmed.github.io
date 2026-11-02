@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Users, MessagesSquare, GraduationCap, Briefcase, ArrowUpRight, HeartHandshake, ArrowRight } from 'lucide-react'
+import { Users, MessagesSquare, GraduationCap, Briefcase, ArrowUpRight, HeartHandshake, ArrowRight, Newspaper } from 'lucide-react'
 import Seo from '../../components/Seo'
 import { COMMUNITY_CTA } from '../../data/siteContent'
 import SiteLogo, { SILogo } from '../../components/SiteLogo'
@@ -20,6 +20,13 @@ const CHANNELS = [
     tag: 'Opportunities',
     text: 'A fresh verified opportunity every day — scholarships, internships and jobs, with a global-first mix. Daily at 4:00 PM.',
     url: 'https://whatsapp.com/channel/0029VbCOJrjCxoAtWxwUaB1m',
+  },
+  {
+    icon: Newspaper,
+    name: 'Global Radar',
+    tag: 'News',
+    text: 'Short, sourced geopolitical news every morning — a separate brand from Career Radar. Daily at 7:00 AM.',
+    url: 'https://whatsapp.com/channel/0029VbAjS8LEAKWNlCPLpH2S',
   },
 ]
 
@@ -64,7 +71,7 @@ export default function Community() {
       <section className="container-x py-14">
         <p className="section-kicker">Join the channels</p>
         <h2 className="section-title mt-1">Daily posts, straight to your WhatsApp</h2>
-        <div className="mt-8 grid gap-5 md:grid-cols-2">
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
           {CHANNELS.map((c) => (
             <article key={c.name} className="card card-hover flex flex-col p-6">
               <div className="flex items-center justify-between">

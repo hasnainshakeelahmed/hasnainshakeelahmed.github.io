@@ -1,11 +1,39 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useNavigate, useLocation } from 'react-router-dom'
-import { Menu, X, LogOut, LayoutDashboard, ShieldCheck } from 'lucide-react'
+import { Menu, X, LogOut, LayoutDashboard, ShieldCheck, Youtube, Linkedin } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 import AIChatBubble from './AIChatBubble'
 import AnnouncementBar from './AnnouncementBar'
 import CookieConsent from './CookieConsent'
 import SiteLogo from './SiteLogo'
+
+// Social links shown as small icons in the navbar (top-right). Add Instagram
+// here once the URL is confirmed.
+const SOCIALS = [
+  { icon: Youtube, label: 'YouTube', url: 'https://www.youtube.com/@CareerRadar' },
+  { icon: Linkedin, label: 'LinkedIn', url: 'https://www.linkedin.com/company/careerradarofficial/' },
+]
+
+function SocialIcons({ onClick }) {
+  return (
+    <>
+      {SOCIALS.map((s) => (
+        <a
+          key={s.label}
+          href={s.url}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={s.label}
+          title={s.label}
+          onClick={onClick}
+          className="rounded-full p-2 text-brand-navy/70 transition-colors hover:bg-brand-navy/10 hover:text-brand-navy"
+        >
+          <s.icon size={16} />
+        </a>
+      ))}
+    </>
+  )
+}
 
 const NAV = [
   { to: '/jobs', label: 'Jobs' },
@@ -51,6 +79,9 @@ function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
+          <div className="mr-1 flex items-center gap-0.5 border-r border-brand-navy/20 pr-2">
+            <SocialIcons />
+          </div>
           {user ? (
             <>
               {isAdmin && (
@@ -122,6 +153,9 @@ function Navbar() {
               </Link>
             </>
           )}
+          <div className="mt-2 flex items-center gap-1 border-t border-brand-navy/15 px-3 pt-3">
+            <SocialIcons onClick={() => setOpen(false)} />
+          </div>
         </nav>
       )}
     </header>

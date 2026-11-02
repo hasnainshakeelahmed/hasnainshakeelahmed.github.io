@@ -20,6 +20,7 @@ import ResetPassword from './pages/auth/ResetPassword'
 import SplashScreen from './components/SplashScreen'
 import Dashboard from './pages/dashboard/Dashboard'
 import ResumeReview from './pages/dashboard/ResumeReview'
+import MyProgramme from './pages/dashboard/MyProgramme'
 import VerifyCertificate from './pages/public/VerifyCertificate'
 import Videos from './pages/public/Videos'
 import VideoBlog from './pages/public/VideoBlog'
@@ -32,6 +33,7 @@ import ManagePosts from './pages/admin/ManagePosts'
 import ManageVolunteers from './pages/admin/ManageVolunteers'
 import ManageUsers from './pages/admin/ManageUsers'
 import ManageDonations from './pages/admin/ManageDonations'
+import ManageTeam from './pages/admin/ManageTeam'
 import AdminLayout from './pages/admin/AdminLayout'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import ManageJobs from './pages/admin/ManageJobs'
@@ -108,6 +110,14 @@ export default function App() {
           }
         />
         <Route
+          path="dashboard/programme"
+          element={
+            <Protected>
+              <MyProgramme />
+            </Protected>
+          }
+        />
+        <Route
           path="admin"
           element={
             <Protected adminOnly>
@@ -125,6 +135,7 @@ export default function App() {
           <Route path="donations" element={<ManageDonations />} />
           <Route path="education" element={<Placeholder title="Manage Education" />} />
           <Route path="volunteers" element={<ManageVolunteers />} />
+          <Route path="team" element={<ManageTeam />} />
           <Route path="settings" element={<Placeholder title="Admin Settings" />} />
         </Route>
         <Route path="*" element={<Placeholder title="Page not found" />} />

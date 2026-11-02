@@ -11,6 +11,7 @@ const NAV = [
   { to: '/admin/donations', label: 'Donations & Requests', icon: HeartHandshake },
   { to: '/admin/education', label: 'Education', icon: BookOpen },
   { to: '/admin/volunteers', label: 'Volunteers', icon: Users },
+  { to: '/admin/team', label: 'Team', icon: Users },
   { to: '/admin/settings', label: 'Settings', icon: Settings },
 ]
 

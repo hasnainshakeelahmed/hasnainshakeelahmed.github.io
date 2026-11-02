@@ -44,6 +44,7 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true)
   const [generating, setGenerating] = useState(false)
   const [genError, setGenError] = useState('')
+  const [isTeamMember, setIsTeamMember] = useState(false)
 
   useEffect(() => {
     if (!user) return
@@ -52,11 +53,13 @@ export default function Dashboard() {
       supabase.from('career_blueprints').select('*').eq('user_id', user.id).eq('is_active', true).order('generated_at', { ascending: false }).limit(1).maybeSingle(),
       supabase.from('resumes').select('data').eq('user_id', user.id).maybeSingle(),
       listMyCertificates().catch(() => []),
-    ]).then(([scoreRes, bpRes, resumeRes, certs]) => {
+      supabase.from('team_members').select('id').eq('user_id', user.id).eq('status', 'active').limit(1).maybeSingle(),
+    ]).then(([scoreRes, bpRes, resumeRes, certs, teamRes]) => {
       if (!scoreRes.error) setScore(scoreRes.data)
       if (!bpRes.error) setBlueprint(bpRes.data)
       if (!resumeRes.error) setResume(resumeRes.data?.data ?? null)
       setCertificates(certs ?? [])
+      setIsTeamMember(!teamRes.error && !!teamRes.data)
       setLoading(false)
     })
   }, [user])
@@ -95,6 +98,17 @@ export default function Dashboard() {
     <div className="container-x py-10">
       <h1 className="font-display text-3xl font-extrabold text-brand-navy">Welcome back, {name}</h1>
       <p className="mt-1 text-sm text-slate-500">Your personal career HQ — score, analysis, roadmap and saved picks.</p>
+
+      {isTeamMember && (
+        <Link to="/dashboard/programme" className="card card-hover mt-6 flex items-center justify-between gap-4 border-l-4 !border-l-brand-gold p-5">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-widest text-brand-goldDark">Team programme</p>
+            <p className="mt-1 font-display text-lg font-bold text-brand-navy">You have tasks waiting</p>
+            <p className="text-sm text-slate-500">View your assigned work, submit for review and track your progress.</p>
+          </div>
+          <ArrowRight size={20} className="shrink-0 text-brand-goldDark" />
+        </Link>
+      )}
 
       <div className="mt-8 grid gap-5 lg:grid-cols-3">
         {/* Score — real career_scores row */}

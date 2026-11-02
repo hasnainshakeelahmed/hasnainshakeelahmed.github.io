@@ -29,3 +29,9 @@ CREATE POLICY "volunteers_admin_all" ON volunteers FOR ALL
 GRANT INSERT ON public.volunteers TO anon;
 GRANT SELECT, INSERT, UPDATE, DELETE ON public.volunteers TO authenticated;
 GRANT SELECT, INSERT, UPDATE, DELETE ON public.volunteers TO service_role;
+
+-- The leftover table used full_name (NOT NULL) instead of name; the form
+-- sends name, so submissions violated the constraint. Relax it and carry
+-- any old full_name values into name.
+ALTER TABLE volunteers ALTER COLUMN full_name DROP NOT NULL;
+UPDATE volunteers SET name = full_name WHERE name IS NULL AND full_name IS NOT NULL;

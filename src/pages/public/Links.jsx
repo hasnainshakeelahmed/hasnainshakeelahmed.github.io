@@ -11,9 +11,9 @@ const GROUPS = [
     links: [
       {
         icon: Youtube,
-        label: 'YouTube — @CareerRadar',
+        label: 'YouTube — @careerradarai',
         desc: 'Scholarships, career guidance, and the complete University of the People guide.',
-        url: 'https://www.youtube.com/@CareerRadar',
+        url: 'https://www.youtube.com/@careerradarai',
       },
     ],
   },

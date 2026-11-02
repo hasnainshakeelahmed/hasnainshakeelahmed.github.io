@@ -271,6 +271,22 @@
   }
 }
 
+/* Splash screen radar rings */
+@keyframes radar-ping {
+  0% {
+    transform: scale(0.55);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+
+.radar-ring {
+  animation: radar-ping 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
@@ -283,7 +299,8 @@
   .pop-in,
   .blob-drift-1,
   .blob-drift-2,
-  .gradient-text {
+  .gradient-text,
+  .radar-ring {
     animation: none;
   }
   .btn-primary:hover,

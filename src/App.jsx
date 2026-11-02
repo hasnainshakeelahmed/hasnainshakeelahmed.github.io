@@ -17,6 +17,7 @@ import GuideDetail from './pages/public/GuideDetail'
 import Login from './pages/auth/Login'
 import Register from './pages/auth/Register'
 import ResetPassword from './pages/auth/ResetPassword'
+import SplashScreen from './components/SplashScreen'
 import Dashboard from './pages/dashboard/Dashboard'
 import ResumeReview from './pages/dashboard/ResumeReview'
 import VerifyCertificate from './pages/public/VerifyCertificate'
@@ -59,7 +60,9 @@ function Protected({ children, adminOnly = false }) {
 
 export default function App() {
   return (
-    <Routes>
+    <>
+      <SplashScreen />
+      <Routes>
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="jobs" element={<Jobs />} />
@@ -127,5 +130,6 @@ export default function App() {
         <Route path="*" element={<Placeholder title="Page not found" />} />
       </Route>
     </Routes>
+    </>
   )
 }

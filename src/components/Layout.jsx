@@ -9,7 +9,7 @@ import SiteLogo from './SiteLogo'
 
 // Social links shown as small icons in the navbar (top-right).
 const SOCIALS = [
-  { icon: Youtube, label: 'YouTube', url: 'https://www.youtube.com/@CareerRadar' },
+  { icon: Youtube, label: 'YouTube', url: 'https://www.youtube.com/@careerradarai' },
   { icon: Linkedin, label: 'LinkedIn', url: 'https://www.linkedin.com/company/careerradarofficial/' },
   { icon: Instagram, label: 'Instagram', url: 'https://www.instagram.com/careerradar.ai/' },
 ]
@@ -58,7 +58,7 @@ function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-brand-goldDark/50 bg-brand-gold shadow-sm">
       <div className="container-x flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center" aria-label="CareerRadar home">
+        <Link to="/" id="site-logo" className="flex items-center" aria-label="CareerRadar home">
           <SiteLogo variant="light" className="h-14 w-14" />
         </Link>
 

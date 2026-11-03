@@ -1,13 +1,13 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { X } from 'lucide-react'
+import { getSiteSettings, SETTING_DEFAULTS } from '../lib/siteSettings'
 
 const STORAGE_KEY = 'cr-announce-dismissed'
-const GROUP_LINK = 'https://whatsapp.com/channel/0029VbCOJrjCxoAtWxwUaB1m'
 
-// Dismissible top banner inviting visitors to ask questions on WhatsApp.
-// Matches the owner's reference: purple gradient, serif headline, white
-// button, cross at the end. Dismissal persists in localStorage.
+// Dismissible top banner. Text, button and link are editable from
+// /admin/settings (site_settings table); falls back to defaults.
 export default function AnnouncementBar() {
+  const [settings, setSettings] = useState(SETTING_DEFAULTS)
   const [visible, setVisible] = useState(() => {
     try {
       return localStorage.getItem(STORAGE_KEY) !== '1'
@@ -16,7 +16,11 @@ export default function AnnouncementBar() {
     }
   })
 
-  if (!visible) return null
+  useEffect(() => {
+    getSiteSettings().then(setSettings)
+  }, [])
+
+  if (!visible || settings.announce_enabled !== 'true') return null
 
   const dismiss = () => {
     setVisible(false)
@@ -27,27 +31,26 @@ export default function AnnouncementBar() {
     }
   }
 
+  const link = settings.announce_button_url || SETTING_DEFAULTS.announce_button_url
+
   return (
     <div className="relative bg-gradient-to-r from-brand-navy via-brand-navyLight to-brand-navy text-white">
       <div className="container-x flex flex-wrap items-center justify-center gap-x-6 gap-y-2 py-2.5 pr-10 text-center">
-        <p className="font-serif text-base sm:text-lg">
-          Ask Questions Directly on{' '}
-          <a
-            href={GROUP_LINK}
-            target="_blank"
-            rel="noreferrer"
-            className="underline underline-offset-2 hover:text-brand-gold"
-          >
-            WhatsApp here.
-          </a>
-        </p>
         <a
-          href={GROUP_LINK}
+          href={link}
+          target="_blank"
+          rel="noreferrer"
+          className="font-serif text-base underline underline-offset-2 hover:text-brand-gold sm:text-lg"
+        >
+          {settings.announce_text}
+        </a>
+        <a
+          href={link}
           target="_blank"
           rel="noreferrer"
           className="rounded-md bg-white px-5 py-1.5 font-serif text-base font-bold text-slate-900 shadow transition-transform duration-200 hover:scale-105"
         >
-          WhatsApp Broadcast Group
+          {settings.announce_button_label}
         </a>
       </div>
       <button

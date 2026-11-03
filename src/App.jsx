@@ -34,6 +34,7 @@ import ManageVolunteers from './pages/admin/ManageVolunteers'
 import ManageUsers from './pages/admin/ManageUsers'
 import ManageDonations from './pages/admin/ManageDonations'
 import ManageTeam from './pages/admin/ManageTeam'
+import AdminSettings from './pages/admin/AdminSettings'
 import AdminLayout from './pages/admin/AdminLayout'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import ManageJobs from './pages/admin/ManageJobs'
@@ -136,7 +137,7 @@ export default function App() {
           <Route path="education" element={<Placeholder title="Manage Education" />} />
           <Route path="volunteers" element={<ManageVolunteers />} />
           <Route path="team" element={<ManageTeam />} />
-          <Route path="settings" element={<Placeholder title="Admin Settings" />} />
+          <Route path="settings" element={<AdminSettings />} />
         </Route>
         <Route path="*" element={<Placeholder title="Page not found" />} />
       </Route>

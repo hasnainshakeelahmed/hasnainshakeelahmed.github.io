@@ -1,26 +1,34 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useNavigate, useLocation } from 'react-router-dom'
-import { Menu, X, LogOut, LayoutDashboard, ShieldCheck, Youtube, Linkedin, Instagram } from 'lucide-react'
+import { Menu, X, LogOut, LayoutDashboard, ShieldCheck, Youtube, Linkedin, Instagram, Facebook } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 import AIChatBubble from './AIChatBubble'
 import AnnouncementBar from './AnnouncementBar'
 import CookieConsent from './CookieConsent'
 import SiteLogo from './SiteLogo'
+import { getSiteSettings, SETTING_DEFAULTS } from '../lib/siteSettings'
 
 // Social links shown as small icons in the navbar (top-right).
-const SOCIALS = [
-  { icon: Youtube, label: 'YouTube', url: 'https://www.youtube.com/@careerradarai' },
-  { icon: Linkedin, label: 'LinkedIn', url: 'https://www.linkedin.com/company/careerradarofficial/' },
-  { icon: Instagram, label: 'Instagram', url: 'https://www.instagram.com/careerradar.ai/' },
+// URLs are editable from /admin/settings; empty URLs are hidden.
+const SOCIAL_DEFS = [
+  { icon: Youtube, label: 'YouTube', key: 'social_youtube' },
+  { icon: Linkedin, label: 'LinkedIn', key: 'social_linkedin' },
+  { icon: Instagram, label: 'Instagram', key: 'social_instagram' },
+  { icon: Facebook, label: 'Facebook', key: 'social_facebook' },
 ]
 
 function SocialIcons({ onClick }) {
+  const [urls, setUrls] = useState(SETTING_DEFAULTS)
+  useEffect(() => {
+    getSiteSettings().then(setUrls)
+  }, [])
+  const visible = SOCIAL_DEFS.filter((s) => (urls[s.key] || '').trim() !== '')
   return (
     <>
-      {SOCIALS.map((s) => (
+      {visible.map((s) => (
         <a
           key={s.label}
-          href={s.url}
+          href={urls[s.key]}
           target="_blank"
           rel="noreferrer"
           aria-label={s.label}

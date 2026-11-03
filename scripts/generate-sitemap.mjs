@@ -1,4 +1,4 @@
-// Generates public/sitemap.xml for career-radar.space.
+// Generates public/sitemap.xml for the live site.
 // Usage:
 //   SUPABASE_URL=https://xyz.supabase.co SUPABASE_ANON_KEY=<public anon key> \
 //     node scripts/generate-sitemap.mjs
@@ -8,7 +8,7 @@ import { writeFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 
-const SITE = 'https://www.career-radar.space'
+const SITE = 'https://hasnainshakeelahmed.github.io'
 const SUPABASE_URL = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL
 const ANON_KEY = process.env.SUPABASE_ANON_KEY || process.env.VITE_SUPABASE_ANON_KEY
 

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.career-radar.space/sitemap.xml
+Sitemap: https://hasnainshakeelahmed.github.io/sitemap.xml

@@ -142,7 +142,7 @@ export default function PostDetail() {
   const groupMeta = POST_GROUP_META[postGroupWithFallback(post)]
 
   // SEO: canonical URL + structured data for search discovery.
-  const canonical = `https://www.career-radar.space/posts/${post.id}`
+  const canonical = `https://hasnainshakeelahmed.github.io/posts/${post.id}`
   const faqs = extractFaqs(guide)
   const jsonLd = [
     {
@@ -151,8 +151,8 @@ export default function PostDetail() {
       description: metaDescription(caption),
       ...(post.image_url ? { image: [post.image_url] } : {}),
       datePublished: post.published_at,
-      author: { '@type': 'Organization', name: 'Career Radar', url: 'https://www.career-radar.space/' },
-      publisher: { '@type': 'Organization', name: 'Career Radar', url: 'https://www.career-radar.space/' },
+      author: { '@type': 'Organization', name: 'Career Radar', url: 'https://hasnainshakeelahmed.github.io/' },
+      publisher: { '@type': 'Organization', name: 'Career Radar', url: 'https://hasnainshakeelahmed.github.io/' },
       mainEntityOfPage: canonical,
     },
     ...(faqs.length

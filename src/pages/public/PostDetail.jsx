@@ -30,7 +30,31 @@ function splitGuide(description = '') {
   }
 }
 
-// Render the plain-text guide: "### " lines are headings, "• " lines are list
+// Pull Q/A pairs out of a "### FAQs" guide section for FAQPage schema.
+function extractFaqs(guide = '') {
+  const m = guide.match(/### FAQs\s*\n([\s\S]*?)(?=\n### |\s*$)/)
+  if (!m) return []
+  return m[1]
+    .split('\n')
+    .map((l) => l.trim().replace(/^•\s*/, ''))
+    .filter(Boolean)
+    .map((line) => {
+      const q = line.match(/^(.*?\?)\s*[—–-]\s*(.+)$/)
+      return q ? { q: q[1].trim(), a: q[2].trim() } : null
+    })
+    .filter(Boolean)
+    .slice(0, 8)
+}
+
+// Plain-text meta description from a caption: drop hashtags/links, collapse space.
+function metaDescription(caption = '') {
+  return caption
+    .split('#')[0]
+    .replace(/https?:\/\/\S+/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 160)
+}
 // items, "Tips:" is a heading, everything else is a paragraph.
 function GuideBody({ text }) {
   const blocks = text.split(/\n\s*\n/).map((b) => b.trim()).filter(Boolean)
@@ -117,12 +141,43 @@ export default function PostDetail() {
   const channelMeta = CHANNEL_META[post.channel] || { label: post.channel, link: '#' }
   const groupMeta = POST_GROUP_META[postGroupWithFallback(post)]
 
+  // SEO: canonical URL + structured data for search discovery.
+  const canonical = `https://www.career-radar.space/posts/${post.id}`
+  const faqs = extractFaqs(guide)
+  const jsonLd = [
+    {
+      '@type': 'Article',
+      headline: post.title,
+      description: metaDescription(caption),
+      ...(post.image_url ? { image: [post.image_url] } : {}),
+      datePublished: post.published_at,
+      author: { '@type': 'Organization', name: 'Career Radar', url: 'https://www.career-radar.space/' },
+      publisher: { '@type': 'Organization', name: 'Career Radar', url: 'https://www.career-radar.space/' },
+      mainEntityOfPage: canonical,
+    },
+    ...(faqs.length
+      ? [
+          {
+            '@type': 'FAQPage',
+            mainEntity: faqs.map((f) => ({
+              '@type': 'Question',
+              name: f.q,
+              acceptedAnswer: { '@type': 'Answer', text: f.a },
+            })),
+          },
+        ]
+      : []),
+  ]
+
   return (
     <div className="container-x py-10">
       <Seo
-        title={`${post.title} — Career Radar Posts`}
-        description={caption.slice(0, 160)}
-        keywords={`career radar, ${channelMeta.label}, ${post.title}`}
+        title={post.title}
+        description={metaDescription(caption)}
+        keywords={`career radar, ${channelMeta.label}, ${post.title}${post.category ? `, ${post.category}` : ''}`}
+        canonical={canonical}
+        image={post.image_url}
+        jsonLd={jsonLd}
       />
       {/* Breadcrumbs */}
       <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1 text-sm text-slate-500">

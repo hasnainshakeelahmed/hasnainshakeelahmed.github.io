@@ -2023,6 +2023,32 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
+  {
+    slug: 'how-students-get-their-first-freelance-client-no-experience-',
+    videoId: 'fEzf193U3u0',
+    title: 'How Students Get Their First Freelance Client (No Experience Needed)',
+    type: 'long',
+    date: '2026-11-03',
+    category: 'Study Skills',
+    description: [
+      'How do students get their first freelance client with no experience? The secret most beginners miss: clients do not buy your hours or your certificates — they buy outcomes.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'stop-writing-responsible-for-on-your-cv',
+    videoId: 'YdEMAuwA5jE',
+    title: 'Stop Writing \'Responsible For\' on Your CV',
+    type: 'short',
+    date: '2026-11-02',
+    category: 'Career Guidance',
+    description: [
+      'Stop listing duties on your CV — use the XYZ formula: accomplished X, as measured by Y, by doing Z. Turn every bullet into proof with numbers.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
 ]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)

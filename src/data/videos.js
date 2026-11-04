@@ -2049,6 +2049,19 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
+  {
+    slug: 'stop-sending-ai-cover-letters',
+    videoId: 'Q8fBwOrCpBQ',
+    title: 'Stop Sending AI Cover Letters',
+    type: 'short',
+    date: '2026-11-03',
+    category: 'General',
+    description: [
+      'Recruiters spot AI-written cover letters in five seconds. Here is the one way to use AI that actually gets you hired: write three bullet points yourself, then let AI tighten them.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
 ]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)

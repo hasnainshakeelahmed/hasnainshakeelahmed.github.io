@@ -2062,6 +2062,45 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
+  {
+    slug: 'private-university-scholarships-in-germany-what-s-real-in-20',
+    videoId: 'AzRLnbQDfZw',
+    title: 'Private University Scholarships in Germany: What\'s Real in 2027',
+    type: 'long',
+    date: '2026-11-05',
+    category: 'Scholarships',
+    description: [
+      'Private university scholarships in Germany explained: what WHU, Constructor University, ESMT Berlin and the Hertie School actually charge in 2027, which merit scholarships cut that bill, how the €300-a-month Deutschlandstipendium and DAAD funding fit in, and the combination strategy that brings a €20,000 tuition bill down. In this video: 00:00 Twenty Thousand Euros a Year — Or Nothing 00:43 What Private Universities Charge 01:26 Why They Want to Give You Money 02:04 The Merit Scholarships Worth Chasing 03:09 Berlin\'s Big Two: ESMT and Hertie 03:49 €300 a Month From the German State 04:34 What DAAD Will — and Won\'t — Pay For 05:11 The Combination That Makes the Bill Collapse 06:08 The Mistake That Costs You Everything Links mentioned: ESMT Berlin BMW Group Change Maker Fellowship: WHU fees and financing: Hertie School tuition waivers and scholarships: Constructor University: Deutschlandstipendium: DAAD scholarships: Visit our website: Career Radar WhatsApp channel: Career Radar Scholarships & Internships WhatsApp channel: Germany\'s private universities look unaffordable at first glance, but their scholarships are a recruitment budget, not charity.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'this-free-tool-will-interview-you',
+    videoId: '-MK4dbXu7Y8',
+    title: 'This Free Tool Will Interview You',
+    type: 'short',
+    date: '2026-11-04',
+    category: 'Career Guidance',
+    description: [
+      'Stop practising interviews alone. This free AI trick turns ChatGPT into a hiring manager that grills you with real follow-up questions, finds your weak answers, and tells you how to fix them before the real interview.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'study-in-germany-for-almost-free-the-real-cost-in-2027',
+    videoId: 'YTzNQmhA-oQ',
+    title: 'Study in Germany for (Almost) Free: The Real Cost in 2027',
+    type: 'long',
+    date: '2026-11-04',
+    category: 'Study Skills',
+    description: [
+      'Study in Germany for (almost) free: the real cost of tuition-free universities in Germany for international students in 2027, explained step by step. Germany\'s public universities charge zero tuition fees in 14 of 16 states — for every nationality, including non-EU students.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
 ]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)

@@ -2101,6 +2101,19 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
+  {
+    slug: 'stop-saying-i-m-a-hard-worker-in-interviews',
+    videoId: '7-4dx4YoCAM',
+    title: 'Stop Saying \'I\'m a Hard Worker\' in Interviews',
+    type: 'short',
+    date: '2026-11-05',
+    category: 'Career Guidance',
+    description: [
+      'Answer \'Why should we hire you?\' in 3 sentences: the skill, the proof, and the reason. No clichés — just a formula interviewers remember.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
 ]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)

@@ -2114,6 +2114,32 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
+  {
+    slug: 'stop-saying-i-m-a-perfectionist-in-interviews',
+    videoId: '8bOmOasnzRU',
+    title: 'Stop Saying \'I\'m a Perfectionist\' in Interviews',
+    type: 'short',
+    date: '2026-11-06',
+    category: 'Career Guidance',
+    description: [
+      'Answer \'What\'s your biggest weakness?\' the way recruiters actually want to hear it — pick a real weakness, then show the fix you\'re working on. _____________________ Keywords biggest weakness interview answer, interview questions and answers, job interview tips, how to answer weakness question, interview preparation, career advice for students, job interview mistakes, interview tips for freshers, common interview questions, self awareness interview, interview weakness examples, job search tips, career hacks, interview answers',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'top-25-us-universities-for-ms-in-computer-science-2026-guide',
+    videoId: 'zAA-WL-MBN4',
+    title: 'Top 25 US Universities for MS in Computer Science (2026 Guide)',
+    type: 'long',
+    date: '2026-11-06',
+    category: 'General',
+    description: [
+      'The top 25 US universities for an MS in Computer Science, ranked by QS World University Rankings 2026 — with the real tuition for every single one, from MIT at to Duke at . Find out which top CS master\'s costs $10,000 in total, and which ones charge over $65,000 a year.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
 ]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)

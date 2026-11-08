@@ -2140,6 +2140,45 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
+  {
+    slug: 'top-25-fully-funded-phd-programs-2026',
+    videoId: 'FowPJcEnQkw',
+    title: 'Top 25 Fully Funded PhD Programs (2026)',
+    type: 'long',
+    date: '2026-11-08',
+    category: 'General',
+    description: [
+      'The top 25 fully funded PhD programs in the world for 2026, ranked by QS World University Rankings 2026. From MIT at number 1 to Princeton and Sydney tied at 25 — Stanford\'s top fellowship pays $58,500 a year, ETH Zurich pays up to CHF 83,500, and Sydney pays AUD 42,754.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'stop-studying-for-hours-like-this',
+    videoId: 'jazUQffyB-8',
+    title: 'Stop Studying for Hours Like This',
+    type: 'short',
+    date: '2026-11-07',
+    category: 'Study Skills',
+    description: [
+      'Stop studying for hours and remembering nothing. The Pomodoro technique — 25 minutes of focus, 5-minute breaks — helps your brain actually retain what you study.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'top-20-affordable-universities-in-europe-for-international-s',
+    videoId: 'yjYa-1K4ge8',
+    title: 'Top 20 Affordable Universities in Europe for International Students (2026)',
+    type: 'long',
+    date: '2026-11-07',
+    category: 'Study Skills',
+    description: [
+      'The top 20 affordable universities in Europe for international students, ranked by QS World University Rankings 2026 — with the real non-EU tuition for every single one, from ETH Zurich at to Freiburg at . Find out which world-class European degrees cost €0 in tuition, and which famous "free" option is a trap.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
 ]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)

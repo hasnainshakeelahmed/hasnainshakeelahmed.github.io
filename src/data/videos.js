@@ -2179,6 +2179,32 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
+  {
+    slug: 'the-us-job-market-for-international-students-in-2027-what-ch',
+    videoId: 'Gci4C3gtkd8',
+    title: 'The US Job Market for International Students in 2027: What Changed',
+    type: 'long',
+    date: '2026-11-09',
+    category: 'Study Skills',
+    description: [
+      'The US job market for international students in 2027: the $100,000 H-1B fee, the new wage-weighted lottery, OPT and STEM OPT rules, and where the jobs actually are. Everything an international student planning to work in the USA needs to know before the next H-1B lottery.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'stop-rambling-in-your-interview-answers',
+    videoId: 'cIvfiS9Z1lg',
+    title: 'Stop Rambling in Your Interview Answers',
+    type: 'short',
+    date: '2026-11-08',
+    category: 'Career Guidance',
+    description: [
+      'Answer interview questions with the STAR method: Situation, Task, Action, Result — with a real example and the one letter most students skip. _____________________ Keywords STAR method, interview answers, interview tips, job interview, interview preparation, behavioral interview, job interview questions, career advice, interview skills, how to answer interview questions, STAR technique, interview tips for students, job search tips, career hacks, interview confidence',
+    ],
+    takeaways: [],
+    guide: null,
+  },
 ]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)

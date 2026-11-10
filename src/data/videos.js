@@ -2205,6 +2205,32 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
+  {
+    slug: 'hong-kong-phd-fellowship-2027-get-paid-44-150-a-year-for-you',
+    videoId: 'OYdPr7iE2aw',
+    title: 'Hong Kong PhD Fellowship 2027: Get Paid $44,150 a Year for Your PhD',
+    type: 'long',
+    date: '2026-11-10',
+    category: 'General',
+    description: [
+      'Hong Kong PhD Fellowship 2027: the complete, verified guide to 400 fully funded PhD places in Hong Kong — HK$344,400 a year (about US$44,150), the eight universities, who can apply, the two-application trap, and a three-week plan. Both applications close 1 December 2026.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'over-200-space-internships-just-opened',
+    videoId: '7gt1NwUygsA',
+    title: 'Over 200 Space Internships Just Opened',
+    type: 'short',
+    date: '2026-11-09',
+    category: 'Careers',
+    description: [
+      'ESA just opened 200+ student internships across Europe for 2027 — 3–6 months, monthly allowance, deadline 30 November 2026. Final-year Master\'s students only, and you can apply to a maximum of two vacancies.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
 ]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)

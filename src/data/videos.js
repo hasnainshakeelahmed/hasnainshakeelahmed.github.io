@@ -2231,6 +2231,32 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
+  {
+    slug: 'the-nvidia-spy-scandal-what-really-happened-to-jensen-huang',
+    videoId: 'UoXnTIBL94A',
+    title: 'The Nvidia Spy Scandal: What Really Happened to Jensen Huang',
+    type: 'long',
+    date: '2026-11-11',
+    category: 'General',
+    description: [
+      'The CEO of the most valuable company on earth admitted to an affair — and US officials suspect the other woman was recruited by Chinese intelligence. In this documentary we follow the full story: the Sunday email, the honeytrap playbook, a century of real spy cases, the tweet that set the internet on fire, the $460 billion market fallout, and what happens next — the 18 November House briefing, the FBI review, and the shareholder lawsuit.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'stop-pricing-your-first-freelance-project-like-this',
+    videoId: 'sw-vxwclbQ8',
+    title: 'Stop Pricing Your First Freelance Project Like This',
+    type: 'short',
+    date: '2026-11-10',
+    category: 'General',
+    description: [
+      'Stop charging by the hour — charge by value, quote three packages, and always take 50% upfront. Three pricing rules that turn your first freelance project into real income.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
 ]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)

@@ -2257,6 +2257,19 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
+  {
+    slug: 'uopeople-honest-review-2027-is-this-free-online-degree-actua',
+    videoId: 'VCDgDIF03m4',
+    title: 'UoPeople Honest Review 2027 — Is This Free Online Degree Actually Worth It?',
+    type: 'long',
+    date: '2026-11-12',
+    category: 'UoPeople',
+    description: [
+      'UoPeople honest review 2027: is the University of the People free online degree actually worth it? We check the real cost, WSCUC accreditation, how studying works, and what real students say.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
 ]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)

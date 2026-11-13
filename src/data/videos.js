@@ -2270,6 +2270,32 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
+  {
+    slug: 'the-true-cost-of-working-in-germany-after-graduating-from-un',
+    videoId: 'wsBziA3xyj0',
+    title: 'The True Cost of Working in Germany After Graduating from University',
+    type: 'long',
+    date: '2026-11-13',
+    category: 'General',
+    description: [
+      'Working in Germany after graduation? Your first payslip will shock you: a €55,000 salary becomes €2,915 a month.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'stop-saying-i-see-myself-in-your-chair',
+    videoId: 'gKukc_68VjM',
+    title: 'Stop Saying \'I See Myself in Your Chair\'',
+    type: 'short',
+    date: '2026-11-12',
+    category: 'General',
+    description: [
+      'The perfect answer to \'Where do you see yourself in 5 years?\' — a 3-part formula recruiters actually remember. Stop giving the cliche answer and show ambition pointed at their team.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
 ]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)

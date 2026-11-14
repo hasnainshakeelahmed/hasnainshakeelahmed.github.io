@@ -2296,6 +2296,19 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
+  {
+    slug: 'german-blocked-account-2026-11-904-explained-your-real-month',
+    videoId: 'raer2JY7duM',
+    title: 'German Blocked Account 2026: €11,904 Explained + Your Real Monthly Budget',
+    type: 'long',
+    date: '2026-11-14',
+    category: 'General',
+    description: [
+      'German blocked account 2026 explained: the exact €11,904 Sperrkonto amount, the €992 monthly payout, and a real student budget for Munich, Berlin and Leipzig — plus the 140-day part-time work rule every international student must know. In this video: 0:00 €11,904 Before You Even Land 0:51 What a Blocked Account Actually Is 1:37 The Exact Number: €11,904 2:27 Open It in Five Steps 3:46 Where €992 a Month Actually Goes 4:52 Munich vs Berlin vs Leipzig 5:47 Part-Time Work: The 140-Day Rule 7:03 Five Mistakes That Cost Real Money Links mentioned: Blocked account guide 2026: Cost of studying in Germany 2026: Working while studying in Germany (140-day rule): Cost of living for students in Germany: German student visa guide: Deutschlandticket for students 2026: Visit our website: Career Radar WhatsApp channel: Scholarships & Internships WhatsApp channel: Germany\'s public universities charge no tuition, but every international student still needs €11,904 in a blocked account before the visa is approved.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
 ]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)

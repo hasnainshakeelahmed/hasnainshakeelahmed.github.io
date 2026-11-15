@@ -2309,6 +2309,32 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
+  {
+    slug: 'germany-vs-norway-vs-france-vs-austria-cheapest-master-s-in-',
+    videoId: 'TJM1KGL-x98',
+    title: 'Germany vs Norway vs France vs Austria: Cheapest Master\'s in Europe 2027',
+    type: 'long',
+    date: '2026-11-15',
+    category: 'General',
+    description: [
+      'Germany charges €0 tuition, but is it still the cheapest master\'s in Europe? We compare Germany vs Norway vs France vs Austria on tuition, living costs, proof of funds, part-time work and post-study visas — with every figure checked against official 2026/27 sources.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'stop-writing-student-in-your-linkedin-headline',
+    videoId: 'EOGiJbViUrI',
+    title: 'Stop Writing \'Student\' in Your LinkedIn Headline',
+    type: 'short',
+    date: '2026-11-14',
+    category: 'Study Skills',
+    description: [
+      'Your LinkedIn headline is the first thing recruiters see — and \'Student\' tells them nothing. Fix it in 30 seconds with three lines: the role you want, one proof, and what you can do for them.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
 ]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)

@@ -2335,6 +2335,19 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
+  {
+    slug: 'university-of-the-people-transfer-credits-guide-to-graduate-',
+    videoId: 'g82WdkRD7s8',
+    title: 'University of the People Transfer Credits Guide to Graduate Much Faster and Cheaper',
+    type: 'long',
+    date: '2026-11-16',
+    category: 'UoPeople',
+    description: [
+      'University of the People transfer credits explained: transfer up to 90 credits toward a UoPeople bachelor\'s degree and cut the cost from $7,260 to as little as $2,370. This guide covers the official transfer limits, which credits count, Sophia Learning, Study.com and Google Career Certificates, the real cost maths, and the mistakes that waste your money.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
 ]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)

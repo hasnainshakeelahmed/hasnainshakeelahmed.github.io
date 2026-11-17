@@ -2348,6 +2348,32 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
+  {
+    slug: 'is-nexus-youth-exchange-2027-legit-the-honest-truth-about-mi',
+    videoId: 'a9tQvrJqSOI',
+    title: 'Is Nexus Youth Exchange 2027 Legit? The Honest Truth About Milan\'s \'Fully Funded\' Trip',
+    type: 'long',
+    date: '2026-11-16',
+    category: 'General',
+    description: [
+      'Is Nexus Youth Exchange 2027 legit? We investigated the fully funded Milan trip — the $16.90 fee, the $99 visa letter, the 25 free seats out of 400, and whether the Madrid 2026 edition really happened.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'recruiters-spend-6-seconds-on-your-cv',
+    videoId: 'rluXThxr7oA',
+    title: 'Recruiters Spend 6 Seconds on Your CV',
+    type: 'short',
+    date: '2026-11-16',
+    category: 'Career Guidance',
+    description: [
+      'Recruiters spend just 6 seconds on your CV — here\'s what their eyes actually check, and how to survive the scan. _____________________ Keywords CV tips, resume tips, recruiter scan, six second rule, eye tracking study, job search, CV mistakes, resume mistakes, interview tips, career advice, hiring tips, job application, CV format, fresher jobs, Career Radar',
+    ],
+    takeaways: [],
+    guide: null,
+  },
 ]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)

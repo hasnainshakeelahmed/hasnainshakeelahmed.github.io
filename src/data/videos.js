@@ -2374,6 +2374,32 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
+  {
+    slug: 'do-employers-hire-uopeople-graduates-the-honest-answer',
+    videoId: 'VMolo2P6Xc0',
+    title: 'Do Employers Hire UoPeople Graduates? The Honest Answer',
+    type: 'long',
+    date: '2026-11-18',
+    category: 'UoPeople',
+    description: [
+      'Do employers hire UoPeople graduates? Yes — University of the People graduates work at Apple, Amazon, IBM, Microsoft, Oracle and Deloitte.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'what-it-is-actually-like-studying-online-at-university-of-th',
+    videoId: 'KQcZKYbVCgs',
+    title: 'What It Is Actually Like Studying Online at University of the People Daily',
+    type: 'long',
+    date: '2026-11-17',
+    category: 'UoPeople',
+    description: [
+      'What is it actually like studying online at University of the People? No live lectures, no campus, no timetable — just you, a laptop, and a weekly rhythm that runs Thursday to Wednesday.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
 ]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)

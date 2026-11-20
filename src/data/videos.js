@@ -2400,6 +2400,32 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
+  {
+    slug: 'erasmus-mundus-mistakes-that-get-you-rejected-2027',
+    videoId: 'zSxDqFmr6DE',
+    title: 'Erasmus Mundus Mistakes That Get You Rejected (2027)',
+    type: 'long',
+    date: '2026-11-20',
+    category: 'General',
+    description: [
+      'Erasmus Mundus mistakes that get you rejected — the 7 application mistakes that cost students a fully funded €1,400/month master\'s in Europe. Most scholarship deadlines for the 2027 intake fall between 1 December 2026 and 15 January 2027, so fix these before you apply.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'no-experience-build-a-portfolio-that-gets-you-hired',
+    videoId: 'HcaR4xeOxl4',
+    title: 'No Experience? Build a Portfolio That Gets You Hired',
+    type: 'short',
+    date: '2026-11-19',
+    category: 'General',
+    description: [
+      'No experience, no problem. Four pieces, three lines each — build a student portfolio that gets you hired, free on GitHub or Canva.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
 ]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)

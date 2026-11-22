@@ -2426,6 +2426,19 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
+  {
+    slug: 'fully-funded-phd-in-singapore-pays-s-2-700-month',
+    videoId: 'CzuLP8HXs_4',
+    title: 'Fully Funded PhD in Singapore Pays S$2,700/Month',
+    type: 'short',
+    date: '2026-11-21',
+    category: 'General',
+    description: [
+      'Singapore\'s SINGA scholarship funds your PhD — full tuition, S$2,700 a month, no IELTS needed. Deadline 1 December 2026.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
 ]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)

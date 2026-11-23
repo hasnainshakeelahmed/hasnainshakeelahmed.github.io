@@ -2439,6 +2439,32 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
+  {
+    slug: 'japan-scholarships-2027-mext-jasso-honest-guide',
+    videoId: 'PtiFMLS0nsw',
+    title: 'Japan Scholarships 2027: MEXT & JASSO (Honest Guide)',
+    type: 'long',
+    date: '2026-11-23',
+    category: 'Scholarships',
+    description: [
+      'Japan Scholarships 2027: MEXT & JASSO explained honestly — what MEXT really pays, which 2027 routes are still open, and the JASSO mistake most applicants make. MEXT pays up to ¥145,000 a month plus tuition and flights — but the 2027 embassy deadline has already closed.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'if-you-don-t-understand-this-they-will-steal-your-life',
+    videoId: 'fHSm9crb_Kk',
+    title: 'If You Don\'t Understand This, They Will Steal Your Life.',
+    type: 'long',
+    date: '2026-11-22',
+    category: 'General',
+    description: [
+      '"Log kya kahenge" — "what will people say" — has buried more dreams than failure ever has. This video uses Alfred Adler\'s psychology, from The Courage to Be Disliked by Ichiro Kishimi and Fumitake Koga, to break the fear of other people\'s opinions — with a five-question freedom test you can take today.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
 ]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)

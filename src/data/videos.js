@@ -2465,6 +2465,19 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
+  {
+    slug: '3-mistakes-that-waste-your-first-internship',
+    videoId: 'ZR17zax1BJc',
+    title: '3 Mistakes That Waste Your First Internship',
+    type: 'short',
+    date: '2026-11-23',
+    category: 'Careers',
+    description: [
+      'Three mistakes students make in their first internship — and how to avoid them.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
 ]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)

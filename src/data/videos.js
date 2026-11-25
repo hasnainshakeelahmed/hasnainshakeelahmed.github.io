@@ -2478,6 +2478,32 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
+  {
+    slug: 'is-a-master-s-degree-worth-it-in-2027-honest-maths',
+    videoId: 'zrTYjDiy0w0',
+    title: 'Is a Master\'s Degree Worth It in 2027? (Honest Maths)',
+    type: 'long',
+    date: '2026-11-25',
+    category: 'Career Guidance',
+    description: [
+      'Is a master\'s degree worth it in 2027? The honest maths: a two-year US master\'s costs $73,000–$92,000 all in, a UK one £27,000–£33,000, and Germany charges €0 tuition — while the median salary uplift is only $15,444 a year.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'pakistan-s-first-astronaut-is-going-to-space-shenzhou-24',
+    videoId: 'uq-ZDJPyt-U',
+    title: 'Pakistan\'s First Astronaut Is Going to Space (Shenzhou-24)',
+    type: 'long',
+    date: '2026-11-24',
+    category: 'General',
+    description: [
+      'Pakistan\'s first astronaut, Muhammad Zeeshan Ali, launches to China\'s Tiangong space station on Shenzhou-24 — the first foreign astronaut ever to visit Tiangong. Launch: Wednesday 25 November 2026, 5:18 AM Pakistan time (8:18 AM Beijing).',
+    ],
+    takeaways: [],
+    guide: null,
+  },
 ]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)

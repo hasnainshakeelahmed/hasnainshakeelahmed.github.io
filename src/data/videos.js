@@ -2504,6 +2504,19 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
+  {
+    slug: '3-signs-a-job-posting-is-a-scam',
+    videoId: 'fz9o6Sn2WEY',
+    title: '3 Signs a Job Posting Is a Scam',
+    type: 'short',
+    date: '2026-11-25',
+    category: 'Careers',
+    description: [
+      'Real companies never ask you to pay to get hired. Spot these 3 red flags before you apply to any job.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
 ]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)

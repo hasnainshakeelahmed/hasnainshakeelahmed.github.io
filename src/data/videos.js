@@ -2517,6 +2517,32 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
+  {
+    slug: 'the-5-cv-mistakes-that-get-you-rejected-in-6-seconds',
+    videoId: '_g7Dn3YTDXk',
+    title: 'The 5 CV Mistakes That Get You Rejected in 6 Seconds',
+    type: 'long',
+    date: '2026-11-27',
+    category: 'Career Guidance',
+    description: [
+      'CV mistakes that get you rejected — your CV gets about 6 seconds from a recruiter. Here are the 5 mistakes that cost you the interview, and the 10-minute fix that saves your next application.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
+  {
+    slug: 'should-students-earn-money-while-studying',
+    videoId: 's9WE2U2PuG0',
+    title: 'Should Students Earn Money While Studying?',
+    type: 'long',
+    date: '2026-11-26',
+    category: 'Study Skills',
+    description: [
+      'Should students earn money while studying? For a generation, the advice was simple: just study, and earning can wait.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
 ]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)

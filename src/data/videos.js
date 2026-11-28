@@ -2543,6 +2543,19 @@ export const VIDEOS = [
     takeaways: [],
     guide: null,
   },
+  {
+    slug: 'this-free-ai-builds-your-presentation-in-60-seconds',
+    videoId: 'oTagUDyhGhs',
+    title: 'This Free AI Builds Your Presentation in 60 Seconds',
+    type: 'short',
+    date: '2026-11-27',
+    category: 'General',
+    description: [
+      'Gamma\'s free plan turns one topic into a full slide deck in about a minute — slides, text and images included. Fix the details, then share it as a link.',
+    ],
+    takeaways: [],
+    guide: null,
+  },
 ]
 
 export const videoBySlug = (slug) => VIDEOS.find((v) => v.slug === slug)
